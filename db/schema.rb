@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_104448) do
+ActiveRecord::Schema.define(version: 2020_09_01_110030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "household_movies", force: :cascade do |t|
+    t.bigint "movies_id", null: false
+    t.bigint "households_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "randomize_option_id", null: false
+    t.index ["households_id"], name: "index_household_movies_on_households_id"
+    t.index ["movies_id"], name: "index_household_movies_on_movies_id"
+    t.index ["randomize_option_id"], name: "index_household_movies_on_randomize_option_id"
+  end
 
   create_table "households", force: :cascade do |t|
     t.string "name"
@@ -28,6 +39,14 @@ ActiveRecord::Schema.define(version: 2020_09_01_104448) do
     t.string "genre"
     t.string "streaming_service"
     t.string "language"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "randomize_options", force: :cascade do |t|
+    t.string "name"
+    t.integer "points"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,6 +72,9 @@ ActiveRecord::Schema.define(version: 2020_09_01_104448) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "household_movies", "households", column: "households_id"
+  add_foreign_key "household_movies", "movies", column: "movies_id"
+  add_foreign_key "household_movies", "randomize_options"
   add_foreign_key "user_households", "households"
   add_foreign_key "user_households", "users"
 end
