@@ -1,3 +1,6 @@
+<h2>Households</h2>
+<%= link_to "Create Household", new_household_path, class: 'btn btn-secondary'%>
+
 <% @households.each do |household| %>
   <div class="cards-household p-4">
     <h2><%= link_to household.name, household_path(household) %></h2>

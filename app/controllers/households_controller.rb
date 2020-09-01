@@ -21,6 +21,7 @@ class HouseholdsController < ApplicationController
       render :new
     end
   end
+
   private
   def household_params
     params.require(:household).permit(:name)
