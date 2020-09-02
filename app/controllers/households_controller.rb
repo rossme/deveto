@@ -3,7 +3,7 @@ class HouseholdsController < ApplicationController
 
   # As a user i can check the households that I am in
   def index
-    @households = Household.all
+    @households = current_user.households
   end
   # As a user, within a household I can start the GAME.
   def show
@@ -24,6 +24,8 @@ class HouseholdsController < ApplicationController
   end
 
   def start_game
+    @household = Household.find(params[:id])
+    @userhousehold = UserHousehold.new
   end
 
   #As a user I can create groups for watching movies together
@@ -31,15 +33,19 @@ class HouseholdsController < ApplicationController
     @household = Household.new
   end
   def create
-    @household = household.new(household_params)
+
+    @household = Household.new(household_params)
     @household.user = current_user
 
     if @household.save
+      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id)
+      @userhousehold.save
       redirect_to household_path(@household)
     else
       render :new
     end
   end
+
   private
   def household_params
     params.require(:household).permit(:name)
