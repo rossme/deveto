@@ -40,3 +40,9 @@
   <%= link_to "ADD A USER TO HOUSEHOLD", new_household_user_household_path(@household), class: 'btn btn-secondary'%>
 </div>
 
+<%= simple_form_for [@household, @userhousehold] do |f| %>
+  <%= f.input :user, collection: User.all.map{|user| user.email} %>
+  <%= f.button :submit, class: 'btn btn-secondary' %>
+ <% end %>
+
+
