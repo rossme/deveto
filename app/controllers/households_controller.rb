@@ -7,6 +7,7 @@ class HouseholdsController < ApplicationController
   end
   # As a user, within a household I can start the GAME.
   def show
+    @userhousehold = UserHousehold.new
   end
 
   def random_pick

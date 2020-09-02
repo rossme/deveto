@@ -41,7 +41,7 @@
 </div>
 
 <%= simple_form_for [@household, @userhousehold] do |f| %>
-  <%= f.input :user, collection: User.all.map{|user| user.email} %>
+  <%= f.input :user, collection: User.all.map{|user| user.email}, include_blank: false %>
   <%= f.button :submit, class: 'btn btn-secondary' %>
  <% end %>
 
