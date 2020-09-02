@@ -1,13 +1,15 @@
 
-<!--missing description to movies - add to householdmovies-->
+<!--TO DO _ MUST FIX TICKET-->
 <%= @movie.title %>
+<%= @movie.netflixid %>
+<%= @movie.synopsis %>
 
-  <%= simple_form_for [@household, @movie] do |f| %>
+
+<%= simple_form_for [@household, @movie] do |f| %>
   <%= f.input :title %>
-  <%= f.input :genre %>
-  <%= f.input :imdb_rating %>
+  <%= f.input :type %>
+  <%= f.input :rating %>
   <%= f.submit %>
   <%= f.button :submit, class: 'btn btn-secondary' %>
  <% end %>
-
 <!--household_household_movies -->

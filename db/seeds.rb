@@ -29,6 +29,8 @@ movies = NetflixApiService.parsing
 movies.each do |movie|
   Movie.create!(
     title: movie['title'],
+    netflixid: movie['netflixid'],
+
   )
 end
 
