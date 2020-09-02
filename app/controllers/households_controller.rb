@@ -13,8 +13,7 @@ class HouseholdsController < ApplicationController
     @household = Household.new
   end
   def create
-    @household = household.new(household_params)
-    @household.user = current_user
+    @household = Household.new(household_params)
     if @household.save
       redirect_to household_path(@household)
     else
