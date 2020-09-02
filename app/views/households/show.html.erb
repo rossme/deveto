@@ -1,0 +1,48 @@
+<div class="show-household" style="text-align: center">
+  <p>Leaderboard</p>
+  <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Points</th>
+      <th scope="col">Vetos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Ross</td>
+      <td>30</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Meg</td>
+      <td>25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Ricardo</td>
+      <td>15</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div id="ready-to-play-button" style="text-align: center">
+    <%=  link_to "Ready to Watch?", start_game_household_path(@household) %>
+</div>
+
+<div id="add-user-button" style="text-align: center">
+  <%= link_to "ADD A USER TO HOUSEHOLD", new_household_user_household_path(@household), class: 'btn btn-secondary'%>
+</div>
+
+<%= simple_form_for [@household, @userhousehold] do |f| %>
+  <%= f.input :user, collection: User.all.map{|user| user.email} %>
+  <%= f.button :submit, class: 'btn btn-secondary' %>
+ <% end %>
+
+

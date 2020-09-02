@@ -16,8 +16,12 @@ Rails.application.routes.draw do
   # get "/households/household_id/household_movies", to: "household_movies#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :households do
+    member do
+      get "start_game", to: "households#start_game"
+      get "random_pick", to: "households#random_pick"
+    end
     resources :user_households, only: [:new, :create]
-    resources :household_movies, only: [:index, :show]
+    resources :household_movies, only: [:index, :show, :create]
   end
   resources :user_households, only: :destroy
 end

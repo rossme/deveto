@@ -1,0 +1,23 @@
+<div class = "container">
+  <h1>It's your turn!</h1>
+
+  <%= link_to random_pick_household_path(@household, pick: "danny") do %>
+  <%= image_tag("StickerDanny.png", :alt => "rss feed", :class => "StickerDanny" ) %>
+  <% end %>
+  <h1>WATCH SOMETHING ‘GOOD’</h1>
+
+
+
+  <%= link_to random_pick_household_path(@household, pick: "crazy") do %>
+  <%= image_tag("DannyDevetoZrazy.png", :alt => "rss feed", :class => "DannyDevetoZrazy") %>
+  <% end %>
+  <h1>FEELING LIKE SOMETHING‘TERRIBLE’? CHOOSE EVIL</h1>
+
+
+
+  <%= link_to random_pick_household_path(@household, pick: "evil") do %>
+  <%= image_tag("EvilDanny.png", :alt => "rss feed", :class => "EvilDanny") %>
+  <% end %>
+  <h1>ARE YOU NUTS? GO KRAZY! NO VETOS HERE</h1>
+
+</div>
