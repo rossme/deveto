@@ -14,10 +14,10 @@ class HouseholdsController < ApplicationController
 
     # if its my turn - I can chose between 3 randomize options ( the user has 3 turns)
     if params[:pick] == "danny"
-      @movie = Movie.where("movies.imdb_rating > 7.5").sample
+      @movie = Movie.where("movies.rating > 7.5").sample
 
     elsif params[:pick] == "crazy"
-      @movie = Movie.where("movies.imdb_rating < 7.5").sample
+      @movie = Movie.where("movies.rating < 7.5").sample
 
     else params[:pick] == "evil"
       @movie = Movie.all.sample
