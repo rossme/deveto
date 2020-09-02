@@ -1,6 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-center">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+   <%# <h1>DannyDeVeto</h1> %>
+ <%= image_tag("logoNavbarrightone.png", :alt => "DannyDeveto", :class => "navbarimg") %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +28,8 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <i class="fas fa-bars"></i>
+             <%= link_to "", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
