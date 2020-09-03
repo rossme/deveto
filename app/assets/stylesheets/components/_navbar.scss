@@ -27,5 +27,14 @@ h1 {
   padding-bottom: 25px;
 
 }
-  
 
+.dropdown-toggle {
+  width: 100px;
+  height: 100px;
+  background-color: #242425; 
+  border-color: #242425;
+}
+
+.dropdown-toggle::after {
+  content: none; 
+}
