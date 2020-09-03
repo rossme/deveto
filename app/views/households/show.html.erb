@@ -1,5 +1,6 @@
 <div class="show-household" style="text-align: center">
-  <p>Leaderboard</p>
+  <p><%= @household.name %> : Household Leaderboard</p>
+  <p><%= @adminuser %>: Household Administrator</p>
   <table class="table table-dark">
   <thead>
     <tr>
@@ -10,34 +11,20 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Ross</td>
-      <td>30</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Meg</td>
-      <td>25</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Ricardo</td>
-      <td>15</td>
-      <td>2</td>
-    </tr>
+    <% @household.user_households.each do |user_household| %>
+      <tr>
+        <th scope="row">#</th>
+        <td><%= user_household.user.email %></td>
+        <td><%= user_household.total_points %></td>
+        <td><%= user_household.vetos_remaining %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 </div>
 
 <div id="ready-to-play-button" style="text-align: center">
-    <%=  link_to "Ready to Watch?", start_game_household_path(@household) %>
-</div>
-
-<div id="add-user-button" style="text-align: center">
-  <%= link_to "ADD A USER TO HOUSEHOLD", new_household_user_household_path(@household), class: 'btn btn-secondary'%>
+    <%=  link_to "Ready to Watch?", start_game_household_path(@household), class: 'btn btn-secondary m-3' %>
 </div>
 
 <%= simple_form_for [@household, @userhousehold] do |f| %>

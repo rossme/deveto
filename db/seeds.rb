@@ -5,25 +5,56 @@ require 'openssl'
 require 'faker'
 
 puts "DESTROYING USERS..."
+Household.destroy_all
+UserHousehold.destroy_all
 User.destroy_all
+puts "DESTROYING HOUSEHOLDS..."
+
+
+
+ user = User.create!({
+  email: "danny@deve.to",
+  password: "123456",
+ })
+ user.save
 
 puts "SEEDING USERS..."
-10.times do
+20.times do
  user = User.create!({
   email: Faker::Internet.email,
   password: Faker::Internet.password,
  })
+ user.save
 end
 
-puts "DESTROYING HOUSEHOLDS..."
-Household.destroy_all
 
 puts "SEEDING HOUSEHOLDS..."
 10.times do
- user = Household.create!({
+  adminuser = User.all.sample
+ household = Household.create!({
   name: Faker::TvShows::BigBangTheory.character ,
+  user: adminuser
+ })
+ household.save
+ puts "SEEDING USERHOUSEHOLDS..."
+  10.times do
+  userhousehold = UserHousehold.create!({
+  user: User.all.sample,
+  household: household,
+  total_points: rand(1..10),
+  vetos_remaining:rand(1..10),
+  user_turn: false,
+ })
+  end
+  userhousehold = UserHousehold.create!({
+  user: adminuser,
+  household: household,
+  total_points: rand(1..10),
+  vetos_remaining:rand(1..10),
+  user_turn: false,
  })
 end
+
 
 movies = NetflixApiService.parsing
 

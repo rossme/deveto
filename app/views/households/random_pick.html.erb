@@ -10,7 +10,10 @@
   <h3 style="color: lightgrey"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></h3>
   <br>
   <!-- TODO 30 second timer, Javascript? -->
-  <%= link_to "Watch now on Netflix", "https://www.netflix.com/watch/#{@movie.netflixid}", target: "_blank", class: "btn btn-large btn-primary" %>
+  <%= link_to "Watch now on Netflix", "https://www.netflix.com/watch/#{@movie.netflixid}", target: "_blank", class: "btn btn-large btn-primary", pick: "watch" %>
+
+<!-- go to controller do method to give points: 10 - rating -->
+<!-- update points in leaderboard -->
   <br>
 </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_090500) do
+ActiveRecord::Schema.define(version: 2020_09_03_150238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_090500) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_households_on_user_id"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -58,6 +60,9 @@ ActiveRecord::Schema.define(version: 2020_09_03_090500) do
     t.bigint "household_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_points"
+    t.integer "vetos_remaining"
+    t.boolean "user_turn"
     t.index ["household_id"], name: "index_user_households_on_household_id"
     t.index ["user_id"], name: "index_user_households_on_user_id"
   end
@@ -77,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_090500) do
   add_foreign_key "household_movies", "households"
   add_foreign_key "household_movies", "movies"
   add_foreign_key "household_movies", "randomize_options"
+  add_foreign_key "households", "users"
   add_foreign_key "user_households", "households"
   add_foreign_key "user_households", "users"
 end
