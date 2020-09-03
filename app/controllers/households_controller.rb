@@ -8,6 +8,7 @@ class HouseholdsController < ApplicationController
   # As a user, within a household I can start the GAME.
   def show
     @userhousehold = UserHousehold.new
+    @adminuser = @household.user.email
   end
 
   def random_pick
@@ -33,6 +34,7 @@ class HouseholdsController < ApplicationController
   def new
     @household = Household.new
   end
+
   def create
 
     @household = Household.new(household_params)

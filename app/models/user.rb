@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_households
   has_many :households, through: :user_households
+  has_one :household
 end
