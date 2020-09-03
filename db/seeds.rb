@@ -4,9 +4,10 @@ require 'net/http'
 require 'openssl'
 require 'faker'
 
-puts "destroy users"
+puts "DESTROYING USERS..."
 User.destroy_all
 
+puts "SEEDING USERS..."
 10.times do
  user = User.create!({
   email: Faker::Internet.email,
@@ -14,9 +15,10 @@ User.destroy_all
  })
 end
 
-puts "destroy households"
+puts "DESTROYING HOUSEHOLDS..."
 Household.destroy_all
 
+puts "SEEDING HOUSEHOLDS..."
 10.times do
  user = Household.create!({
   name: Faker::TvShows::BigBangTheory.character ,
@@ -24,13 +26,15 @@ Household.destroy_all
 end
 
 movies = NetflixApiService.parsing
-
 #DB movie schema needs changing to match API schema.
 movies.each do |movie|
   Movie.create!(
     title: movie['title'],
+    rating: movie['rating'],
+    released: movie['released'],
+    media: movie['type'],
     netflixid: movie['netflixid'],
-
+    synopsis: movie['synopsis']
   )
 end
 

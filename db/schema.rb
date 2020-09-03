@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_161713) do
+ActiveRecord::Schema.define(version: 2020_09_02_224613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_161713) do
     t.string "title"
     t.float "rating"
     t.string "released"
-    t.string "type"
+    t.string "media"
     t.string "netflixid"
     t.string "synopsis"
     t.datetime "created_at", precision: 6, null: false

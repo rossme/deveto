@@ -10,9 +10,9 @@ class NetflixApiService
     results = []
 
     #THE 'QUERY' NEEDS FIXING
-    while page < 50
+    while page <= 3
 
-      query = "?q=get%3Anew3000%3APT&p=#{page}&t=ns&st=adv-!Movie"
+      query = "?q=get%3Anew3000%3APT&p=#{page}&t=ns&st=adv"
 
       url = URI(base_url + "#{query}")
 
