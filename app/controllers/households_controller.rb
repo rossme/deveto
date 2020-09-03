@@ -9,6 +9,7 @@ class HouseholdsController < ApplicationController
 
   def show
     @userhousehold = UserHousehold.new
+    @adminuser = @household.user.email
   end
 
   def random_pick
