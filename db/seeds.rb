@@ -34,7 +34,9 @@ movies.each do |movie|
     released: movie['released'],
     media: movie['type'],
     netflixid: movie['netflixid'],
-    synopsis: movie['synopsis']
+    synopsis: movie['synopsis'],
+    image: movie['image1'],
+    runtime: movie['runtime']
   )
 end
 
