@@ -1,8 +1,6 @@
 require 'json'
-require 'byebug'
 
 class NetflixApiService
-
   def self.parsing
     puts "NETFLIX API LOADING MOVIES..."
 
