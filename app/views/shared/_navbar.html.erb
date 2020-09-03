@@ -12,19 +12,24 @@
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
   <span style="font-size: 2em; color: #fdc83c;">
     <i class="fas fa-bars"></i>
-  </span> 
+  </span>
   </button>
+  <% if user_signed_in? %>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-   <%= link_to "Log in", user_session_path, class:"dropdown-item" %>
-   <%= link_to "Sign up", user_session_path, class:"dropdown-item" %>
+    <%= link_to 'Profile', edit_user_registration_path, class:"dropdown-item" %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item"  %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path, class:"dropdown-item"  %>
+      <%= link_to "Login", new_user_session_path, class:"dropdown-item"  %>
     <a class="dropdown-item" href="#">Contact</a>
   </div>
+  <% end %>
 </div>
 
- 
+
     </ul>
   </div>
 </div>
 
- 
+
 
