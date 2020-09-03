@@ -1,7 +1,10 @@
 <div class="container">
   <br>
   <!-- TODO _ MUST FIX TICKET-->
-  <h2 style="color: white"><strong><%= @movie.title %></strong></h2>
+  <h3 style="color: white"><strong><%= @movie.title %></strong></h3>
+  <!-- RUNTIME not always seeded - not reliable -->
+  <%= @movie.runtime %>
+  <%= image_tag @movie.image %>
   <br>
   <!-- TODO ADD MATH TO NEW DEF ON OTHER PAGE TO CREATE SCORE RULES AND ADD TO POINTS IF THEY CLICK 'WATCH' AND NOBODY VETOS -->
   <h3 style="color: lightgrey"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></h3>
