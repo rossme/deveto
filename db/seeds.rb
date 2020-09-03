@@ -5,14 +5,16 @@ require 'openssl'
 require 'faker'
 
 puts "DESTROYING USERS..."
+puts "DESTROYING HOUSEHOLDS..."
+puts "DESTROYING USER HOUSEHOLDS..."
+puts "DESTROYING DANNY..."
+
+User.destroy_all
 Household.destroy_all
 UserHousehold.destroy_all
-User.destroy_all
-puts "DESTROYING HOUSEHOLDS..."
-
-
 
  user = User.create!({
+  name: "Danny",
   email: "danny@deve.to",
   password: "123456",
  })
@@ -21,22 +23,22 @@ puts "DESTROYING HOUSEHOLDS..."
 puts "SEEDING USERS..."
 20.times do
  user = User.create!({
+  name: Faker::Name.first_name,
   email: Faker::Internet.email,
   password: Faker::Internet.password,
  })
  user.save
 end
 
-
 puts "SEEDING HOUSEHOLDS..."
+puts "SEEDING USERHOUSEHOLDS..."
 10.times do
   adminuser = User.all.sample
- household = Household.create!({
-  name: Faker::TvShows::BigBangTheory.character ,
+  household = Household.create!({
+  name: Faker::Color.unique.color_name,
   user: adminuser
  })
  household.save
- puts "SEEDING USERHOUSEHOLDS..."
   10.times do
   userhousehold = UserHousehold.create!({
   user: User.all.sample,
@@ -55,6 +57,8 @@ puts "SEEDING HOUSEHOLDS..."
  })
 end
 
+puts "DESTROYING NETFLIX MOVIES..."
+Movie.destroy_all
 
 movies = NetflixApiService.parsing
 
@@ -71,11 +75,3 @@ movies.each do |movie|
   )
 end
 
-# puts "destroy movies"
-# Movie.destroy_all
-
-# puts "scrapping lowest rated movies"
-# ScrappingImdbService.new.call("https://www.imdb.com/chart/bottom?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=4da9d9a5-d299-43f2-9c53-f0efa18182cd&pf_rd_r=4HHYC932YF2QG4D752JD&pf_rd_s=right-4&pf_rd_t=15506&pf_rd_i=bottom&ref_=chtbtm_ql_8")
-
-# puts "scrapping top rated movies"
-# ScrappingImdbService.new.call("https://www.imdb.com/chart/top/?ref_=nv_mv_250")
