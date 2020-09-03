@@ -6,21 +6,22 @@ class HouseholdsController < ApplicationController
     @households = current_user.households
   end
   # As a user, within a household I can start the GAME.
+
   def show
     @userhousehold = UserHousehold.new
   end
 
   def random_pick
-
     # if its my turn - I can chose between 3 randomize options ( the user has 3 turns)
     if params[:pick] == "danny"
-      @movie = Movie.where("movies.rating > 7.5").sample
+      @movie = Movie.where("movies.rating >= 7.0").sample
 
     elsif params[:pick] == "crazy"
-      @movie = Movie.where("movies.rating < 7.5").sample
+      @movie = Movie.where("movies.rating < 7.0").sample
 
     else params[:pick] == "evil"
-      @movie = Movie.all.sample
+      #TODO add runtime over 80 mins to remove series classed as movies?
+      @movie = Movie.where("movies.media = 'movie'").sample
     end
   end
 
@@ -29,12 +30,12 @@ class HouseholdsController < ApplicationController
     @userhousehold = UserHousehold.new
   end
 
-  #As a user I can create groups for watching movies together
+  # As a user I can create groups for watching movies together
   def new
     @household = Household.new
   end
-  def create
 
+  def create
     @household = Household.new(household_params)
     # @household.user = current_user
 
@@ -48,6 +49,7 @@ class HouseholdsController < ApplicationController
   end
 
   private
+
   def household_params
     params.require(:household).permit(:name)
   end
