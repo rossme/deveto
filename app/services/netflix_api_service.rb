@@ -30,5 +30,4 @@ class NetflixApiService
     end
     return results
   end
-  #open Netflix app here with methods etc
 end

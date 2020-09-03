@@ -12,8 +12,9 @@ p {
 justify-content: center;
 font-family: 'Londrina Solid', cursive;
 padding-top: 50px;
-font-size: 20px;
-font-weight: bolder; 
+font-size: 25px;
+font-weight: bold;
+color: #fdc83c 
 }
 
 button {
@@ -21,14 +22,14 @@ button {
   width: 250px;
   height: 75px;
   padding: 12px 28px
-//   padding-top: 50px;
-//   background: #242425;
-//   color: yellow;
+
   }
 
 h1  { 
     font-family: 'Londrina Solid', cursive;
     padding-bottom: 25px;
+    font-size: 50px;
+    font-weight: bold
 }
 
 .imagelanding {
@@ -37,7 +38,16 @@ h1  {
   padding-top: 50px;
   padding-right: 10px;
   padding-bottom: 30px;
-//   padding-left:
+  animation: rotation 2s  linear;
+  
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 footer {
