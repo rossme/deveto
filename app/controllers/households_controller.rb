@@ -36,7 +36,7 @@ class HouseholdsController < ApplicationController
   def create
 
     @household = Household.new(household_params)
-    @household.user = current_user
+    # @household.user = current_user
 
     if @household.save
       @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id)
