@@ -1,18 +1,21 @@
-<div class="container">
+<div class=container>
+  <div class="row">
+    <div class="col-12">
+      <% if user_signed_in? %>
+        <%= link_to "Your Households", households_path, class: 'btn btn-secondary' %>
+        <% else %>
+        <% end %>
 
-<%= image_tag("StickerDanny.png", :alt => "DannyDeveto", :class => "imagelanding") %>
+        <%= image_tag("StickerDanny.png", :alt => "DannyDeveto", :class => "imagelanding") %>
 
-<div id="randomize" data-movies="<%= @movies %>">
-<h1>Randomize a Movie</h1>
+        <div id="randomize" data-movies="<%= @movies %>">
+          <h1>Randomize a Movie</h1>
+        </div>
+
+        <button type="button" id="randomize-button" class="btn btn-dark ">Let's Go!</button> 
+
+      <p>SIGN UP FOR EXCLUSIVE FEATURES, EV!L DEVETO, VETO FRIEND’S CHOICE, GET POINTS.</p>
+    </div>
+  </div>
 </div>
 
-<button type="button" id="randomize-button" class="btn btn-dark ">Let's Go!</button> 
-
-<p>SIGN UP FOR EXCLUSIVE
-FEATURES, EV!L DEVETO, VETO FRIEND’S CHOICE, GET POINTS.</p>
-
-<footer>
-<i class="fas fa-ellipsis-h"></i>
-</footer>
-
-</div>

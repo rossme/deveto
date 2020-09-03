@@ -2,7 +2,7 @@ require 'json'
 
 class NetflixApiService
   def self.parsing
-    puts "NETFLIX API LOADING MOVIES..."
+    puts "SEEDING NETFLIX MOVIES..."
 
     page = 1
     base_url = "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi"
