@@ -27,6 +27,8 @@ end
 
 movies = NetflixApiService.parsing
 #DB movie schema needs changing to match API schema.
+
+#TODO CHECK "IMAGE" IN API, SEEMS TO BE image, image1, image2 etc.
 movies.each do |movie|
   Movie.create!(
     title: movie['title'],
@@ -34,8 +36,8 @@ movies.each do |movie|
     released: movie['released'],
     media: movie['type'],
     netflixid: movie['netflixid'],
-    synopsis: movie['synopsis']
-    image: movie['image1']
+    synopsis: movie['synopsis'],
+    image: movie['image'],
     runtime: movie['runtime']
   )
 end
