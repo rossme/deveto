@@ -15,11 +15,10 @@ class HouseholdsController < ApplicationController
   def random_pick
     # if its my turn - I can chose between 3 randomize options ( the user has 3 turns)
     if params[:pick] == "danny"
-      @movie = Movie.where("movies.rating >= 7.0").sample
+      @movie = Movie.where("movies.rating >= 7.0 AND movies.media = 'movie'").sample
 
     elsif params[:pick] == "crazy"
       @movie = Movie.where("movies.rating < 7.0").sample
-
     else params[:pick] == "evil"
       #TODO add runtime over 80 mins to remove series classed as movies?
       @movie = Movie.where("movies.media = 'movie'").sample
