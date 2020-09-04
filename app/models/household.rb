@@ -5,4 +5,5 @@ class Household < ApplicationRecord
   has_many :household_movies, dependent: :destroy
   has_many :movies, through: :household_movies, dependent: :destroy
   has_many :randomize_options, through: :household_movies, dependent: :destroy
+  validates :users, uniqueness: true
 end
