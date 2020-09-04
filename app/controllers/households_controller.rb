@@ -9,7 +9,7 @@ class HouseholdsController < ApplicationController
 
   def show
     @userhousehold = UserHousehold.new
-    @adminuser = @household.user.email
+    @user_choice = User.where.not(id: @household.users.ids).map{|user| user.name}
   end
 
   def random_pick

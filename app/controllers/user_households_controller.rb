@@ -6,17 +6,13 @@ class UserHouseholdsController < ApplicationController
       @userhousehold = UserHousehold.new
     end
 
-
     def create
       @user = User.where(email: params[:user_household][:user]).first
-      @adminuser = User.find(UserHousehold.find(params[:id]).user_id).email
+      @userhousehold = UserHousehold.new(household_id: params[:household_id], user_id: @user.id)
 
-      if @user == @adminuser
-        @userhousehold = UserHousehold.new(household_id: params[:household_id], user_id: @user.id)
-        #@userhousehold = UserHousehold.new(household_id: params[:household_id], user_id: @adminuser.id)
-        @household = Household.find(params[:household_id])
+      @household = Household.find(params[:household_id])
 
-        @userhousehold.save
+      if @userhousehold.save
         redirect_to household_path(@household)
       else
         render :new
