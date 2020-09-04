@@ -1,26 +1,19 @@
 class HouseholdMoviesController < ApplicationController
 
   def index
-
     @household = Household.find(params[:household_id])
-    @danny_deveto = Movie.all.sample # best movies
-    @evil_deveto = Movie.all.sample # worst movies
-    @kamikaze = Movie.all.sample # all movies
-
-    # passar 1 movie para o link (esse link vai para o create)
-
-    # else I can see who's turn is it
   end
 
   def create
     @household = Household.find(params[:household_id])
-    @household_movies = HouseholdMovies.new(household_movies_params)
+    @household_movie = HouseholdMovie.new(household_movies_params)
+    @household_movie.household = @household
 
-    if @household_movies.save
-      redirect_to household_household_movies_path
-    else
-      render :new
-    end
+    @household_movie.save
+    userhousehold = @household.user_households.where(user: current_user).first
+    userhousehold.total_points += 10 - @household_movie.movie.rating.to_i
+    userhousehold.save
+    redirect_to "https://www.netflix.com/watch/#{@household_movie.movie.netflixid}"
   end
 
   # As a user I will wait for 30 seconds for someone to veto the movie
@@ -36,6 +29,6 @@ class HouseholdMoviesController < ApplicationController
   private
 
     def household_movies_params
-      params.require(:household_movies).permit(:movies_id, :household_id) #:randomize_id?
+      params.require(:household_movie).permit(:movie_id) #:randomize_id?
     end
 end

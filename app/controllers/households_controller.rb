@@ -12,8 +12,11 @@ class HouseholdsController < ApplicationController
     @user_choice = User.where.not(id: @household.users.ids).map{|user| user.name}
   end
 
+
   def random_pick
-    # if its my turn - I can chose between 3 randomize options ( the user has 3 turns)
+    # 2. if y turn is true do
+
+    # if itsrn - I can chose between 3 randomize options ( the user has 3 turns)
     if params[:pick] == "danny"
       @movie = Movie.where("movies.rating >= 7.0 AND movies.media = 'movie'").sample
 
@@ -23,11 +26,14 @@ class HouseholdsController < ApplicationController
       #TODO add runtime over 80 mins to remove series classed as movies?
       @movie = Movie.where("movies.media = 'movie'").sample
     end
+    @household_movie = HouseholdMovie.new(movie: @movie)
   end
 
   def start_game
+    # 3. give points
     @household = Household.find(params[:id])
-    @userhousehold = UserHousehold.new
+    @user_playing = @household.user_households.where(user_turn: true).first
+    @user_playing = @household.user_households.where(user: current_user).first unless @user_playing
   end
 
   # As a user I can create groups for watching movies together

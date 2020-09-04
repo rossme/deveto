@@ -19,14 +19,6 @@ class UserHouseholdsController < ApplicationController
       end
     end
 
-    def points
-      if params[:pick] == "watch"
-        point = 10 - @movie.rating.to_i
-
-        # update leaderboard
-      end
-    end
-
     def destroy
     end
 
