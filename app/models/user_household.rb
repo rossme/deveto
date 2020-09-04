@@ -1,5 +1,5 @@
 class UserHousehold < ApplicationRecord
   belongs_to :user
   belongs_to :household
-  validates :user, uniqueness: true
+  validates :user, uniqueness: { scope: :household }
 end
