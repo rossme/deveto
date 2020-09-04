@@ -1,23 +1,24 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-12">
-      <% if user_signed_in? %>
-        <%= link_to "Your Households", households_path, class: 'btn btn-secondary' %>
+    <div class="col-md-4 d-flex justify-content-center text-center">
+        <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599218903/deveto/danny_tdcaap.png", :alt => "DannyDeveto", :class => "imagelanding") %>
+    </div>
+    <div class="col-md-4 d-flex justify-content-center text-center">
+      <div id="randomize" data-movies="<%= @movies %>" style="color: white; height: 70px;">
+        <h1>Random movie...</h1>
+      </div>
+    </div>
+    <div class="col-md-4 d-flex justify-content-center text-center">
+      <div id="randomize" data-movies="<%= @movies %>">
+        <button type="button" id="randomize-button" class="btn btn-default btn-lg">DANNY'S CHOICE</button>
+        <% if user_signed_in? %>
+        <%= link_to "My Households", households_path, class: "btn btn-default btn-lg m-2" %>
         <% else %>
+        <h4 style="padding: 20px; font-weight: lighter; color: white; line-height: 30px;">Sign up for exclusive access to <strong>Evil DeVeto,</strong>
+          Krazy DeVeto, add your household, collect points for
+        watching terrible movies and play <strong>Vetos</strong> against your housemates movie choices!</h4>
+        <%= link_to "Sign up", new_user_registration_path, class:"btn btn-default btn-lg"  %>
         <% end %>
-
-        <%= image_tag("StickerDanny.png", :alt => "DannyDeveto", :class => "imagelanding") %>
-
-        <div id="randomize" data-movies="<%= @movies %>">
-          <h1>Let's see what Danny chose...</h1>
-        </div>
-
-        <p id="countdown"></p>
-
-        <button type="button" id="randomize-button" class="btn btn-default btn-lg btn-block">RANDOMIZE</button>
-        <p>Create a Household, collect points. Really hate that movie your housemate chose? Use your <strong>VETO</strong> against your friend's choice!</p>
-        <%= link_to "SIGN UP FOR ACCESS TO ALL OUR FEATURES!", new_user_registration_path, class:"btn btn-default btn-lg btn-block"  %>
     </div>
   </div>
 </div>
-
