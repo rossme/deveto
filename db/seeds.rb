@@ -3,7 +3,6 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 require 'faker'
-require 'byebug'
 
 puts "DESTROYING USERS..."
 puts "DESTROYING HOUSEHOLDS..."
@@ -36,7 +35,7 @@ end
 puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 
-5.times do 
+5.times do
 
   household = Household.create!({
   name: Faker::Color.unique.color_name,
@@ -44,10 +43,10 @@ puts "SEEDING USERHOUSEHOLDS..."
  })
  household.save
 
- 
+
 
 2.times do |count2|
-  
+
   userhousehold = UserHousehold.create!({
   user: User.all[count2],
   household: household,
@@ -56,7 +55,7 @@ puts "SEEDING USERHOUSEHOLDS..."
   user_turn: false,
  })
  end
- 
+
 end
 
 puts "DESTROYING NETFLIX MOVIES..."
