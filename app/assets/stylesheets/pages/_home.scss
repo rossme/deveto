@@ -1,13 +1,9 @@
 //TO ADD OR CHANGE FONTS GO TO _fonts.scss
 
 body {
-  background-color: #8d1618;
-}
-
-h1  {
-  padding-bottom: 25px;
-  font-size: 50px;
-  font-weight: bold;
+  background: rgb(191,30,34);
+  background: radial-gradient(circle, rgba(191,30,34,1) 0%, rgba(139,21,24,1) 100%);
+  color: white;
 }
 
 .imagelanding {
