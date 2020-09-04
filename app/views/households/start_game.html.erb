@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>It's your turn!</h1>
+      <h1><%= user_household.user.name %> it's your turn to pick!</h1>
 
       <%= link_to random_pick_household_path(@household, pick: "danny") do %>
       <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599218903/deveto/danny_tdcaap.png", :alt => "rss feed", :class => "danny" ) %>
