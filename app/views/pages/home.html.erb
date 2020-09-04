@@ -1,4 +1,4 @@
-<div class=container>
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
       <% if user_signed_in? %>
@@ -9,12 +9,12 @@
         <%= image_tag("StickerDanny.png", :alt => "DannyDeveto", :class => "imagelanding") %>
 
         <div id="randomize" data-movies="<%= @movies %>">
-          <h1>Randomize a Movie</h1>
+          <h1>Let's see what Danny chose...</h1>
         </div>
 
-        <button type="button" id="randomize-button" class="btn btn-dark ">Let's Go!</button> 
-
-      <p>SIGN UP FOR EXCLUSIVE FEATURES, EV!L DEVETO, VETO FRIEND’S CHOICE, GET POINTS.</p>
+        <button type="button" id="randomize-button" class="btn btn-default btn-lg btn-block">RANDOMIZE</button>
+        <p>Create a Household, collect points. Really hate that movie your housemate chose? Use your <strong>VETO</strong> against your friend's choice!</p>
+        <%= link_to "SIGN UP FOR ACCESS TO ALL OUR FEATURES!", new_user_registration_path, class:"btn btn-default btn-lg btn-block"  %>
     </div>
   </div>
 </div>

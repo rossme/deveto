@@ -1,40 +1,8 @@
-
-.navbar-lewagon {
-  justify-content: space-between;
-  background: #242425;
+.navbar {
+  margin: 0px !important;
+  padding: 0px !important;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-.navbar-brand h1 {
-  text-align: center;
-  justify-content: space-between;
-  color: #fdc83c}
-
-h1 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 70px;
-}
-.navbarimg {
-  width: 500px;
-  padding-bottom: 25px;
-
-}
-
-.dropdown-toggle {
-  width: 100px;
-  height: 100px;
-  background-color: #242425; 
-  border-color: #242425;
-}
-
-.dropdown-toggle::after {
-  content: none; 
+.navbar-toggler {
+  border: none;
 }

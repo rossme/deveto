@@ -4,7 +4,7 @@
   <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col"></th>
       <th scope="col">Name</th>
       <th scope="col">Points</th>
       <th scope="col">Vetos</th>
@@ -14,7 +14,7 @@
     <% @household.user_households.each do |user_household| %>
       <tr>
         <th scope="row">#</th>
-        <td><%= user_household.user.email %></td>
+        <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
         <td><%= user_household.vetos_remaining %></td>
       </tr>
@@ -29,7 +29,7 @@
 
 <%= simple_form_for [@household, @userhousehold] do |f| %>
   <%= f.input :user, collection: User.all.map{|user| user.email}, include_blank: false %>
-  <%= f.button :submit, class: 'btn btn-secondary' %>
+  <%= f.button :submit, "Add Friend", class: 'btn btn-secondary' %>
  <% end %>
 
 

@@ -1,46 +1,23 @@
-// Specific CSS for your home-page
-.container { 
-    text-align: center; 
-    flex-basis: auto;
-}
+//TO ADD OR CHANGE FONTS GO TO _fonts.scss
 
 body {
-    background-color: #8d1618;
+  background-color: #8d1618;
 }
 
-p {
-justify-content: center;
-font-family: 'Londrina Solid', cursive;
-padding-top: 50px;
-font-size: 25px;
-font-weight: bold;
-color: #fdc83c 
-}
-
-button {
-  border-radius: 20px;
-  width: 250px;
-  height: 75px;
-  padding: 12px 28px
-
-  }
-
-h1  { 
-    font-family: 'Londrina Solid', cursive;
-    padding-bottom: 25px;
-    font-size: 50px;
-    font-weight: bold
+h1  {
+  padding-bottom: 25px;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .imagelanding {
-  height: 300;
   width: 350px;
   padding-top: 50px;
   padding-right: 10px;
   padding-bottom: 30px;
   animation: rotation 2s  linear;
-  
 }
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -49,8 +26,3 @@ h1  {
     transform: rotate(359deg);
   }
 }
-
-footer {
-    display: block;
-    padding-bottom: 50px;
-  }

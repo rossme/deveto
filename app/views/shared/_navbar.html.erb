@@ -1,35 +1,26 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-content-center">
-  <%= link_to "#", class: "navbar-brand" do %>
-   <%# <h1>DannyDeVeto</h1> %>
- <%= image_tag("logoNavbarrightone.png", :alt => "DannyDeveto", :class => "navbarimg") %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">
+    <img src="https://res.cloudinary.com/djnfnwxgu/image/upload/v1599210319/deveto/deveto_logo_grey_ypgoxj.svg" height="50" alt="Danny DeVeto">
+  </a>
+  <button class="navbar-toggler mx-1" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-  <span style="font-size: 2em; color: #fdc83c;">
-    <i class="fas fa-bars"></i>
-  </span>
-  </button>
-  <% if user_signed_in? %>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <%= link_to 'Profile', edit_user_registration_path, class:"dropdown-item" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"dropdown-item"  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, class:"dropdown-item"  %>
-      <%= link_to "Login", new_user_session_path, class:"dropdown-item"  %>
-    <a class="dropdown-item" href="#">Contact</a>
-  </div>
-  <% end %>
-</div>
-
-
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto mt-0 pt-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
     </ul>
+      <span class="navbar-text px-4">
+        <% if user_signed_in? %>
+        <%= link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
+       <% else %>
+        <%= link_to "Login", new_user_session_path, class:"navbar-text" %> |
+        <%= link_to "Sign up", new_user_registration_path, class:"navbar-text" %>
+      </span>
+    <% end %>
   </div>
-</div>
-
+</nav>
 
 
