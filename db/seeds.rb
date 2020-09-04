@@ -33,10 +33,10 @@ end
 puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 10.times do
-  adminuser = User.all.sample
+  adminuser2 = User.all.sample
   household = Household.create!({
   name: Faker::Color.unique.color_name,
-  user: adminuser
+  user: adminuser2
  })
  household.save
   10.times do
@@ -49,7 +49,7 @@ puts "SEEDING USERHOUSEHOLDS..."
  })
   end
   userhousehold = UserHousehold.create!({
-  user: adminuser,
+  user: adminuser2,
   household: household,
   total_points: rand(1..10),
   vetos_remaining:rand(1..10),
