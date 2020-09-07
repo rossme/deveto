@@ -85,35 +85,19 @@ puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 
 users = User.all.to_a
-
-puts "SEEDING HOUSEHOLDS..."
-puts "SEEDING USERHOUSEHOLDS..."
 count = 1
 
-
-puts "SEEDING USERS..."
-20.times do
- user = User.create!({
-  name: Faker::Name.first_name,
-  email: Faker::Internet.email,
-  password: Faker::Internet.password,
- })
- user.save
-end
-puts "SEEDING HOUSEHOLDS..."
-puts "SEEDING USERHOUSEHOLDS..."
+household_array = ["Family", "Friends", "Le Wagon Family", "Grandma's House", "Cousin's House"]
 
 5.times do
   household = Household.create!({
-  name: Faker::Color.unique.color_name,
+  name: household_array.sample,
   user: User.last
  })
  household.save
+  
 2.times do |count2|
-
   selected_user = users.sample
-
-
   userhousehold = UserHousehold.create!({
   user: selected_user,
   household: household,
@@ -124,6 +108,7 @@ puts "SEEDING USERHOUSEHOLDS..."
   users.delete(selected_user)
  end
 end
+
 puts "DESTROYING NETFLIX MOVIES..."
 Movie.destroy_all
 movies = NetflixApiService.parsing
