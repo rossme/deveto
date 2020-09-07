@@ -84,41 +84,6 @@ end
 puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 
-#params = { household: {
-  #name: 'Family', users: [
-    #{ name: "Adriano",
-     # email: "adriano@gmail.com",
-      #password: "123456"
-#     },
-#     {
-#       name: "Danny",
-#       email: "danny@deve.to",
-#       password: "123456"
-#     }
-#   ]
-# }}
-
-
-
-
-
-#  user = User.create!({
-#   name: "Danny",
-#   email: "danny@deve.to",
-#   password: "123456",
-#  })
-#  user.save
-
-# puts "SEEDING USERS..."
-# 20.times do
-#  user = User.create!({
-#   name: Faker::Name.first_name,
-#   email: Faker::Internet.email,
-#   password: Faker::Internet.password,
-#  })
-#  user.save
-# end
-
 users = User.all.to_a
 
 puts "SEEDING HOUSEHOLDS..."
@@ -126,12 +91,6 @@ puts "SEEDING USERHOUSEHOLDS..."
 count = 1
 
 
- user = User.create!({
-  name: "Danny",
-  email: "danny@deve.to",
-  password: "123456",
- })
- user.save
 puts "SEEDING USERS..."
 20.times do
  user = User.create!({
