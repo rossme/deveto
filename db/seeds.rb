@@ -13,8 +13,6 @@ Household.destroy_all
 User.destroy_all
 
 
-user_selected = []
-
 data_users = [
   {
     name: "Ricardo",
@@ -95,7 +93,7 @@ household_array = ["Family", "Friends", "Le Wagon Family", "Grandma's House", "C
   user: User.last
  })
  household.save
-  
+
 2.times do |count2|
   selected_user = users.sample
   userhousehold = UserHousehold.create!({
