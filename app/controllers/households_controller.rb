@@ -14,6 +14,7 @@ class HouseholdsController < ApplicationController
 
   def random_pick
     # 2. if y turn is true do
+
     # if itsrn - I can chose between 3 randomize options ( the user has 3 turns)
     if params[:pick] == "danny"
       @movie = Movie.where("movies.rating >= 7.0 AND movies.media = 'movie'").sample
@@ -29,8 +30,10 @@ class HouseholdsController < ApplicationController
   def start_game
     # 3. give points
     @household = Household.find(params[:id])
-    @user_playing = @household.user_households.where(user_turn: true).first
-    @user_playing = @household.user_households.where(user: current_user).first unless @user_playing
+    @user_playing = @household.users.sample
+    @household.user_households.update_all(user_turn: false)
+    @household.user_households.where(user: @user_playing).update(user_turn: true)
+    @user_playing_household = @household.user_households.find_by(user_turn: true)
   end
 
   # As a user I can create groups for watching movies together

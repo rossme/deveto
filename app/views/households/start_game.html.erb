@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
     <!--   if its my turn  -->
-    <%  if @user_playing.user == current_user %>
+    <%  if  @user_playing_household.user == current_user %>
       <h1>It's your turn!</h1>
 
       <%= link_to random_pick_household_path(@household, pick: "danny") do %>
@@ -23,12 +23,6 @@
         <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/comedy-horror_uvi5mb.png", :alt => "rss feed", :class => "danny") %>
           <h1>ARE YOU NUTS? GO KRAZY! NO VETOS HERE</h1>
         <% end %>
-      <% else %>
-        <h1>IT’S <%= @user_playing.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
-      <% end %>
-    </div>
-  </div>
-</div>
 <div class="carousel-caption d-none d-md-block">
     <h5>...</h5>
     <p>...</p>
@@ -51,3 +45,10 @@
     </div>
   </div>
 </div>
+      <% else %>
+        <h1>IT’S <%= @user_playing_household.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
+      <% end %>
+    </div>
+  </div>
+</div>
+
