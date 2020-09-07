@@ -10,8 +10,12 @@ class HouseholdMoviesController < ApplicationController
 
     @household_movie.save
     userhousehold = @household.user_households.where(user: current_user).first
-    userhousehold.total_points += 10 - @household_movie.movie.rating.to_i
+    userhousehold.total_points += 10 - @household_movie.movie.rating.to_i if userhousehold.total_points
     userhousehold.save
+
+    user_playing = @household.user_households.sample
+    household.user_households.update_all(user_turn: false)
+    user_playing.update(user_turn: true)
     redirect_to "https://www.netflix.com/watch/#{@household_movie.movie.netflixid}"
   end
 

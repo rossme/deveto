@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do
       get "start_game", to: "households#start_game"
       get "random_pick", to: "households#random_pick"
+      get "veto", to: "households#veto"
     end
     resources :user_households, only: [:new, :create]
     resources :household_movies, only: [:index, :show, :create]
