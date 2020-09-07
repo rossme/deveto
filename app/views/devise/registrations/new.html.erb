@@ -1,9 +1,8 @@
-<h2>Sign up</h2>
-
+<div class="sign-up-container">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs-sign-up">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -23,3 +22,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+ </div>
