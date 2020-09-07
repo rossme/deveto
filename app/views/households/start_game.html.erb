@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
     <!--   if its my turn  -->
-    <%  if  @user_playing_household.user == current_user %>
+    <% if @user_playing_household.user == current_user %>
       <h1>It's your turn!</h1>
 
       <%= link_to random_pick_household_path(@household, pick: "danny") do %>
@@ -10,44 +10,36 @@
       <% end %>
       <h1>WATCH SOMETHING ‘GOOD’</h1>
 
-
-
       <%= link_to random_pick_household_path(@household, pick: "evil") do %>
         <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/Artboard_3_1_ziycf3.png", :alt => "rss feed", :class => "danny") %>
       <% end %>
       <h1>FEELING LIKE SOMETHING‘TERRIBLE’? CHOOSE EVIL</h1>
 
-
-
       <%= link_to random_pick_household_path(@household, pick: "krazy") do %>
         <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/comedy-horror_uvi5mb.png", :alt => "rss feed", :class => "danny") %>
           <h1>ARE YOU NUTS? GO KRAZY! NO VETOS HERE</h1>
-        <% end %>
-<div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-    <h5>...</h5>
-    <p>...</p>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-</div>
-      <% else %>
-        <h1>IT’S <%= @user_playing_household.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
       <% end %>
+
+      <% else %>
+        <div id="waiting-user-2">
+          <h1>IT’S <%= @user_playing_household.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
+        </div>
+        <div id="playing-user-2">
+          <div id="movie-name">
+            <h1>Movie Name</h1>
+          </div>
+
+         <!--  updated to vetos_remaining  -->
+          <% if @user_veto.vetos_remaining && @user_veto.vetos_remaining > 0  %>
+            <p>You have veto powers</p>
+            <%= link_to veto_household_path(@household) do %>
+              <%= image_tag "veto.png" %>
+            <% end %>
+          <% else %>
+            <p>You have no Veto powers</p>
+          <% end %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
