@@ -124,8 +124,6 @@ end
  })
  end
 
-end
-
 puts "DESTROYING NETFLIX MOVIES..."
 Movie.destroy_all
 
