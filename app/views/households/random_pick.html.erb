@@ -9,8 +9,7 @@
   <!-- TODO ADD MATH TO NEW DEF ON OTHER PAGE TO CREATE SCORE RULES AND ADD TO POINTS IF THEY CLICK 'WATCH' AND NOBODY VETOS -->
   <h3 style="color: lightgrey"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></h3>
   <br>
-  <!-- TODO 30 second timer, Javascript? -->
-  ADD DIV HERE FOR COUNTDOWN TIMER - WITH TEXT - "ANY VETOS?"
+  <!-- TIMER IS BELOW - see timer.js -->
   <div class="waiting-veto">
     <h2>Will They Use Their Veto Powers!?</h2>
     <div id="veto-timer" style="font-size: 36px;">30</div>
@@ -18,7 +17,6 @@
   <div class="d-none" id="watch-btn">
     <%= simple_form_for [@household, @household_movie ] do |f| %>
     <%= f.input :movie_id, as: :hidden %>
-    <!-- TODO CHECK METHOD BELOW - NOT OPENING IN NETFLIX FOR SOME REASON -->
     <%= f.button :submit, "No Vetos! Watch now on Netflix", class: "btn btn-large btn-primary"%>
    <% end %>
   </div>
