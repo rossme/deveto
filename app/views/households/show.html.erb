@@ -27,7 +27,7 @@
 </div>
 
   <%= simple_form_for [@household, @userhousehold] do |f| %>
-    <%= f.input :user, collection: @user_choice, include_blank: false %>
+    <%= f.input :user, collection: @user_choices, include_blank: false %>
     <%= f.button :submit, "Add Friend", class: 'btn btn-secondary' %>
  <% end %>
 
