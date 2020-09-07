@@ -1,6 +1,6 @@
 let timeleft = 30;
  // Update the count down every 1 second
-  const timer = setInterval(function startTimer() {
+const timer = setInterval(function startTimer() {
   // Get today's date and time
   
   if(timeleft <= 0){

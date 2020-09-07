@@ -40,5 +40,3 @@ const randomizeMovieNameOnClick = () => {
 };
 
 export { randomizeMovieNameOnClick }
-
-
