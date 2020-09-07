@@ -10,13 +10,18 @@
   <h3 style="color: lightgrey"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></h3>
   <br>
   <!-- TODO 30 second timer, Javascript? -->
-
-  <%= simple_form_for [@household, @household_movie ] do |f| %>
-  <%= f.input :movie_id, as: :hidden %>
-  <!-- TODO CHECK METHOD BELOW - NOT OPENING IN NETFLIX FOR SOME REASON -->
-  <%= f.button :submit, "Watch now on Netflix", class: "btn btn-large btn-primary" %>
- <% end %>
-
+  ADD DIV HERE FOR COUNTDOWN TIMER - WITH TEXT - "ANY VETOS?"
+  <div class="waiting-veto">
+    <h2>Will They Use Their Veto Powers!?</h2>
+    <div id="veto-timer" style="font-size: 36px;">30</div>
+  </div>
+  <div class="d-none" id="watch-btn">
+    <%= simple_form_for [@household, @household_movie ] do |f| %>
+    <%= f.input :movie_id, as: :hidden %>
+    <!-- TODO CHECK METHOD BELOW - NOT OPENING IN NETFLIX FOR SOME REASON -->
+    <%= f.button :submit, "No Vetos! Watch now on Netflix", class: "btn btn-large btn-primary"%>
+   <% end %>
+  </div>
 <!-- go to controller do method to give points: 10 - rating -->
 <!-- update points in leaderboard -->
   <br>
