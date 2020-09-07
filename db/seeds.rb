@@ -13,47 +13,138 @@ UserHousehold.destroy_all
 Household.destroy_all
 User.destroy_all
 
+user_selected = []
 
-
- user = User.create!({
-  name: "Danny",
-  email: "danny@deve.to",
-  password: "123456",
- })
- user.save
-
-puts "SEEDING USERS..."
-20.times do
- user = User.create!({
-  name: Faker::Name.first_name,
-  email: Faker::Internet.email,
-  password: Faker::Internet.password,
- })
- user.save
+data_users = [
+  {
+    name: "Ricardo",
+    email: "ricardo@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Cass",
+    email: "cass@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Megan",
+    email: "megan@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Lara",
+    email: "lara@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Eukleyv",
+    email: "eukleyv@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Branca",
+    email: "branca@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Samira",
+    email: "samira@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Maria",
+    email: "maria@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Louis",
+    email: "louis@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Adriano",
+    email: "adriano@gmail.com",
+    password: "123456"
+  },
+  {
+    name: "Danny",
+    email: "danny@deve.to",
+    password: "123456"
+  }
+]
+data_users.each do |props|
+  user = User.create!({
+  name: props[:name],
+  email: props[:email],
+  password: props[:password]
+  })
 end
+
 
 puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
+
+#params = { household: {
+  #name: 'Family', users: [
+    #{ name: "Adriano",
+     # email: "adriano@gmail.com",
+      #password: "123456"
+#     },
+#     {
+#       name: "Danny",
+#       email: "danny@deve.to",
+#       password: "123456"
+#     }
+#   ]
+# }}
+
+
+
+
+
+#  user = User.create!({
+#   name: "Danny",
+#   email: "danny@deve.to",
+#   password: "123456",
+#  })
+#  user.save
+
+# puts "SEEDING USERS..."
+# 20.times do
+#  user = User.create!({
+#   name: Faker::Name.first_name,
+#   email: Faker::Internet.email,
+#   password: Faker::Internet.password,
+#  })
+#  user.save
+# end
+
+users = User.all.to_a
+
+puts "SEEDING HOUSEHOLDS..."
+puts "SEEDING USERHOUSEHOLDS..."
+count = 1
 
 5.times do
 
   household = Household.create!({
   name: Faker::Color.unique.color_name,
-  user: user
+  user: User.last
  })
  household.save
 
 
 
 2.times do |count2|
-
+  selected_user = users.sample
   userhousehold = UserHousehold.create!({
-  user: User.all[count2],
+  user: selected_user,
   household: household,
   total_points: rand(1..10),
   vetos_remaining:rand(1..10),
   user_turn: false,
  })
+  users.delete(selected_user)
  end
 
 end

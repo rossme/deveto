@@ -9,7 +9,7 @@ class HouseholdsController < ApplicationController
 
   def show
     @userhousehold = UserHousehold.new
-    @user_choice = User.where.not(id: @household.users.ids).map{|user| user.name}
+    @user_choice = User.where.not(id: @household.users.ids)
   end
 
 
