@@ -13,9 +13,9 @@
 
   <%= simple_form_for [@household, @household_movie ] do |f| %>
   <%= f.input :movie_id, as: :hidden %>
+  <!-- TODO CHECK METHOD BELOW - NOT OPENING IN NETFLIX FOR SOME REASON -->
   <%= f.button :submit, "Watch now on Netflix", class: "btn btn-large btn-primary" %>
  <% end %>
-
 
 <!-- go to controller do method to give points: 10 - rating -->
 <!-- update points in leaderboard -->

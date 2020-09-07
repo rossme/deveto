@@ -6,26 +6,48 @@
       <h1>It's your turn!</h1>
 
       <%= link_to random_pick_household_path(@household, pick: "danny") do %>
-      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599218903/deveto/danny_tdcaap.png", :alt => "rss feed", :class => "danny" ) %>
+        <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599218903/deveto/danny_tdcaap.png", :alt => "rss feed", :class => "danny" ) %>
       <% end %>
       <h1>WATCH SOMETHING ‘GOOD’</h1>
 
 
 
       <%= link_to random_pick_household_path(@household, pick: "evil") do %>
-      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/Artboard_3_1_ziycf3.png", :alt => "rss feed", :class => "danny") %>
+        <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/Artboard_3_1_ziycf3.png", :alt => "rss feed", :class => "danny") %>
       <% end %>
       <h1>FEELING LIKE SOMETHING‘TERRIBLE’? CHOOSE EVIL</h1>
 
 
 
       <%= link_to random_pick_household_path(@household, pick: "krazy") do %>
-      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/comedy-horror_uvi5mb.png", :alt => "rss feed", :class => "danny") %>
-      <% end %>
-      <h1>ARE YOU NUTS? GO KRAZY! NO VETOS HERE</h1>
+        <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599217974/deveto/comedy-horror_uvi5mb.png", :alt => "rss feed", :class => "danny") %>
+          <h1>ARE YOU NUTS? GO KRAZY! NO VETOS HERE</h1>
+        <% end %>
       <% else %>
-      <h1>IT’S <%= @user_playing.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
-    <% end %>
+        <h1>IT’S <%= @user_playing.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="..." alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
     </div>
   </div>
 </div>
