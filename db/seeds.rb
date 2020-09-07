@@ -125,13 +125,6 @@ puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 count = 1
 
-
- user = User.create!({
-  name: "Danny",
-  email: "danny@deve.to",
-  password: "123456",
- })
- user.save
 puts "SEEDING USERS..."
 20.times do
  user = User.create!({
