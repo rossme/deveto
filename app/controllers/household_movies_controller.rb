@@ -1,5 +1,4 @@
 class HouseholdMoviesController < ApplicationController
-
   def index
     @household = Household.find(params[:household_id])
   end
@@ -28,7 +27,7 @@ class HouseholdMoviesController < ApplicationController
 
   private
 
-    def household_movies_params
-      params.require(:household_movie).permit(:movie_id) #:randomize_id?
-    end
+  def household_movies_params
+    params.require(:household_movie).permit(:movie_id) #:randomize_id?
+  end
 end

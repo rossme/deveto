@@ -8,10 +8,10 @@ puts "DESTROYING USERS..."
 puts "DESTROYING HOUSEHOLDS..."
 puts "DESTROYING USER HOUSEHOLDS..."
 puts "DESTROYING DANNY..."
-
 UserHousehold.destroy_all
 Household.destroy_all
 User.destroy_all
+
 
 user_selected = []
 
@@ -125,18 +125,36 @@ puts "SEEDING HOUSEHOLDS..."
 puts "SEEDING USERHOUSEHOLDS..."
 count = 1
 
-5.times do
 
+ user = User.create!({
+  name: "Danny",
+  email: "danny@deve.to",
+  password: "123456",
+ })
+ user.save
+puts "SEEDING USERS..."
+20.times do
+ user = User.create!({
+  name: Faker::Name.first_name,
+  email: Faker::Internet.email,
+  password: Faker::Internet.password,
+ })
+ user.save
+end
+puts "SEEDING HOUSEHOLDS..."
+puts "SEEDING USERHOUSEHOLDS..."
+
+5.times do
   household = Household.create!({
   name: Faker::Color.unique.color_name,
   user: User.last
  })
  household.save
-
-
-
 2.times do |count2|
+
   selected_user = users.sample
+
+
   userhousehold = UserHousehold.create!({
   user: selected_user,
   household: household,
@@ -146,14 +164,10 @@ count = 1
  })
   users.delete(selected_user)
  end
-
 end
-
 puts "DESTROYING NETFLIX MOVIES..."
 Movie.destroy_all
-
 movies = NetflixApiService.parsing
-
 movies.each do |movie|
   Movie.create!(
     title: movie['title'],
@@ -166,4 +180,3 @@ movies.each do |movie|
     runtime: movie['runtime']
   )
 end
-
