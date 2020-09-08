@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  mount Sidekiq::Web => '/sidekiq'
 end

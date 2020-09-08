@@ -5,7 +5,7 @@ const randomizeMovieNameOnClick = () => {
   Array.prototype.random = function () {
     return this[Math.floor((Math.random()*this.length))];
   }
-  
+
  /*  let btimer;
 
   function timer(seconds, cb) {
@@ -13,7 +13,7 @@ const randomizeMovieNameOnClick = () => {
     btimer = window.setTimeout(function() {
       cb();
       if (remaningTime > 0) {
-        timer(remaningTime - 1, cb); 
+        timer(remaningTime - 1, cb);
         document.getElementById("countdown").innerHTML = remaningTime + " seconds remaining";
       }
       else {
@@ -26,15 +26,15 @@ const randomizeMovieNameOnClick = () => {
   var callback = function() {
     clearTimeout(btimer)
   }; */
-  
+
   document.querySelector("#randomize-button").addEventListener('click', function() {
     document.querySelector("#randomize").innerHTML = "";
     let movie = movies.random().replace(/("|"$)/g, '');
     let movierandom = document.createElement("H1");
     movierandom.innerHTML = movie;
     moviename.prepend(movierandom);
-    window.clearTimeout(btimer);
-    timer(30, callback); 
+    // window.clearTimeout(btimer);
+    // timer(30, callback);
   })
 };
 

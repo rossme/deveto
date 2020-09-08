@@ -34,7 +34,7 @@ import { randomizeMovieNameOnClick } from "../components/randomize";
 
 import { vetoTimer } from "../components/timer";
 
-
+import { initHouseholdCable } from "../channels/household_channel";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,8 +42,9 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   //import chatroom
 
+  // ACTION CABLE BELOW
+  initHouseholdCable();
 
-  initChatroomCable();
   if (document.querySelector(".pages-home")){
     randomizeMovieNameOnClick();
   };

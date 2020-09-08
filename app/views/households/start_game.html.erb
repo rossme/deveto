@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container household-start-game" data-household-id="<%= @household.id %>"  data-current-user-id="<%= current_user.id %>">
   <div class="row">
     <div class="col-12">
     <!--   if its my turn  -->
@@ -41,11 +41,13 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
       <% else %>
+         <!-- User 2 waiting for random pick-->
         <div id="waiting-user-2">
-          <h1>IT’S <%= @user_playing_household.user.name %>’S TURN! BUT YOU CAN STILL PLAY YOUR VETO! WAIT HERE...</h1>
+          <h1>IT’S <%= @user_playing_household.user.name %>’S TURN! WAIT HERE...</h1>
         </div>
-        <div id="playing-user-2">
+        <div id="playing-user-2" class="d-none">
           <div id="movie-name">
             <h1>Movie Name</h1>
           </div>
