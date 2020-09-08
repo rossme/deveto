@@ -8,13 +8,12 @@
   <div class="row justify-content-between">
   <% @households.each do |household| %>
     <div class="col-12">
-
-  <div class="cards-household p-4 house_hold_cards" >
-  
-   <h2><%= link_to household.name, household_path(household) %></h2>
-  </div>
- 
-
+      <div class="cards-household p-4 house_hold_cards" >
+       <h2><%= link_to household.name, household_path(household) %></h2>
+          <%= link_to household_path(household), method: :delete, data: { confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+      </div>
     </div>
      <% end %>
   </div>

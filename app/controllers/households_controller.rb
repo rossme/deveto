@@ -1,5 +1,5 @@
 class HouseholdsController < ApplicationController
-  before_action :set_household, only: [:show, :random_pick, :start_game]
+  before_action :set_household, only: [:show, :random_pick, :start_game, :destroy]
 
   # As a user i can check the households that I am in
   def index
@@ -67,6 +67,11 @@ class HouseholdsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @household.destroy
+    redirect_to households_path
   end
 
   private
