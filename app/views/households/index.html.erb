@@ -1,16 +1,21 @@
 <div class="container">
-<h2>Households</h2>
-<%= link_to "Create Household", new_household_path, class: 'btn btn-secondary new_household'%>
+  <div class="house_hold">
+    <h2>Households</h2>
+    <%= link_to "Create Household", new_household_path, class: 'btn btn-secondary new_household'%>
+  </div>
+
 
   <div class="row justify-content-between">
-    <div class="col-md-4 py-0 d-flex justify-content-between text-center">
-<% @households.each do |household| %>
-  <div class="cards-household p-4">
+  <% @households.each do |household| %>
+    <div class="col-12">
+
+  <div class="cards-household p-4 house_hold_cards" >
   
    <h2><%= link_to household.name, household_path(household) %></h2>
   </div>
-  <% end %>
+ 
 
     </div>
+     <% end %>
   </div>
  </div>
