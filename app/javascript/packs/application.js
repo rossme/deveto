@@ -34,23 +34,24 @@ import { randomizeMovieNameOnClick } from "../components/randomize";
 
 import { vetoTimer } from "../components/timer";
 
-
+import { initHouseholdCable } from "../channels/household_channel";
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //import chatroom
- 
- 
-  initChatroomCable();
+  // ACTION CABLE BELOW
+  initHouseholdCable();
+
+  // initChatroomCable();
   if (document.querySelector(".pages-home")){
     randomizeMovieNameOnClick();
   };
   if (document.querySelector(".households-start_game")){
     vetoTimer();
   }
- 
+
 });
 
 

@@ -18,6 +18,11 @@ class HouseholdMoviesController < ApplicationController
     @household.user_households.update_all(user_turn: false)
     user_playing.update(user_turn: true)
     redirect_to "https://www.netflix.com/watch/#{@household_movie.movie.netflixid}"
+    # ACTION CABLE BROADCAST BELOW
+    # HouseholdChannel.broadcast_to(
+    # @household,
+    #   render_to_string(notice: "Movie has been picked, veto now?")
+    # )
   end
 
   # As a user I will wait for 30 seconds for someone to veto the movie

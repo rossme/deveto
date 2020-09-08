@@ -24,6 +24,11 @@ class HouseholdsController < ApplicationController
       @movie = Movie.where("movies.media = 'movie'").sample
     end
     @household_movie = HouseholdMovie.new(movie: @movie)
+
+    HouseholdChannel.broadcast_to(
+      @household,
+      { action: 'ramdom_pick', movie_name: @movie.title, sender_id: current_user.id }
+    )
   end
 
   def start_game
@@ -31,7 +36,6 @@ class HouseholdsController < ApplicationController
     @household = Household.find(params[:id])
     @user_playing_household = @household.user_households.find_by(user_turn: true)
     @user_veto = @household.user_households.find_by(user: current_user)
-
   end
 
   def veto
@@ -45,7 +49,12 @@ class HouseholdsController < ApplicationController
     @user_veto.vetos_remaining -= 1
     @user_veto.save
     # broadcast message to all the user households
-    redirect_to start_game_household_path(@household), notice: "Movie vetod!!!!!"
+    HouseholdChannel.broadcast_to(
+      @household,
+      { action: 'veto', veto_from: current_user.name, sender_id: current_user.id }
+    )
+
+    redirect_to start_game_household_path(@household), notice: 'Veto POWER!!!'
   end
 
 

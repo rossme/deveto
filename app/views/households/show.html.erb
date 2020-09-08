@@ -9,9 +9,10 @@
       <th scope="col">Vetos</th>
     </tr>
   </thead>
+  <!-- ACTION CABLE -->
   <tbody>
     <% @household.user_households.each do |user_household| %>
-      <tr>
+      <tr id="<%= user_household.user.id %>">
         <th scope="row" id="table-num">#</th>
         <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
