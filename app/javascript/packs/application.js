@@ -36,14 +36,21 @@ import { vetoTimer } from "../components/timer";
 
 
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //import chatroom
-
-  vetoTimer();
+ 
+ 
   initChatroomCable();
-  randomizeMovieNameOnClick();
+  if (document.querySelector(".pages-home")){
+    randomizeMovieNameOnClick();
+  };
+  if (document.querySelector(".households-start_game")){
+    vetoTimer();
+  }
+ 
 });
 
 
