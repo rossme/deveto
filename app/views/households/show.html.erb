@@ -12,7 +12,7 @@
   <tbody>
     <% @household.user_households.each do |user_household| %>
       <tr>
-        <th scope="row">#</th>
+        <th scope="row" id="table-num">#</th>
         <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
         <td><%= user_household.vetos_remaining %></td>
