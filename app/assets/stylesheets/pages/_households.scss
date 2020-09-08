@@ -4,17 +4,27 @@ h2 {
   font-family: 'Londrina Solid', cursive;
   color: #0E0000;
   font-weight: 50;
-  font-weight: bolder; 
+  font-weight: bolder;
 }
 
-.new_household {
-    color: #fdc83c;
+.house_hold {
+    display: grid;
     justify-content: center;
-    text-align: center;
-    background-color: #242425;
-    border-radius: 10px;
-    font-size: 15px;
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
-  }
+}
 
 
+.house_hold_cards{
+    margin: 15px;
+    background-color: #242425 ;
+    border-radius: 15px;
+
+    a{
+        color:#fdc83c;
+    }
+}
+
+.fa-trash {
+  position: absolute;
+  right: -20px;
+  width: 100px;
+}

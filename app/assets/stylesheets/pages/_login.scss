@@ -15,3 +15,27 @@ h2 {
     justify-content: center;
     display: grid;
 }
+
+
+.form-container{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.form-inputs-devise {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+
+    a{
+        color:black;
+    }
+}
+
+.form-inputs {
+    color:black;
+}

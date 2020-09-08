@@ -41,14 +41,14 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //import chatroom
+
   // ACTION CABLE BELOW
   initHouseholdCable();
 
-  // initChatroomCable();
   if (document.querySelector(".pages-home")){
     randomizeMovieNameOnClick();
   };
-  if (document.querySelector(".households-start_game")){
+  if (document.querySelector(".households-start_game") || document.querySelector(".households-random_pick")){
     vetoTimer();
   }
 

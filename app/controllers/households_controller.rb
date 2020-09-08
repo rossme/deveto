@@ -1,5 +1,5 @@
 class HouseholdsController < ApplicationController
-  before_action :set_household, only: [:show, :random_pick, :start_game]
+  before_action :set_household, only: [:show, :random_pick, :start_game, :destroy]
 
   # As a user i can check the households that I am in
   def index
@@ -47,6 +47,9 @@ class HouseholdsController < ApplicationController
     # update number of vetos
     # take points from the user_household
     @user_veto.vetos_remaining -= 1
+    if @user_veto.total_points > 0
+      @user_veto.total_points -= 1
+    end
     @user_veto.save
     # broadcast message to all the user households
     HouseholdChannel.broadcast_to(
@@ -56,7 +59,6 @@ class HouseholdsController < ApplicationController
 
     redirect_to start_game_household_path(@household), notice: 'Veto POWER!!!'
   end
-
 
   # As a user I can create groups for watching movies together
   def new
@@ -68,12 +70,17 @@ class HouseholdsController < ApplicationController
     @household.user = current_user
 
     if @household.save
-      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id, vetos_remaining: 5, total_points: 6)
+      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id, vetos_remaining: 1, total_points: 0)
       @userhousehold.save
       redirect_to household_path(@household)
     else
       render :new
     end
+  end
+
+  def destroy
+    @household.destroy
+    redirect_to households_path
   end
 
   private
