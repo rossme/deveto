@@ -43,11 +43,13 @@ class HouseholdsController < ApplicationController
     # update number of vetos
     # take points from the user_household
     @user_veto.vetos_remaining -= 1
+    if @user_veto.total_points > 0
+      @user_veto.total_points -= 1
+    end
     @user_veto.save
     # broadcast message to all the user households
     redirect_to start_game_household_path(@household), notice: "Movie vetod!!!!!"
   end
-
 
   # As a user I can create groups for watching movies together
   def new
@@ -59,7 +61,7 @@ class HouseholdsController < ApplicationController
     @household.user = current_user
 
     if @household.save
-      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id, vetos_remaining: 5, total_points: 6)
+      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id, vetos_remaining: 1, total_points: 0)
       @userhousehold.save
       redirect_to household_path(@household)
     else

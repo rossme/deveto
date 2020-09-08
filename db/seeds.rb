@@ -17,64 +17,78 @@ data_users = [
   {
     name: "Ricardo",
     email: "ricardo@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/22415816?v=4"
   },
   {
     name: "Cass",
     email: "cass@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/59645241?v=4"
+
   },
   {
     name: "Megan",
     email: "megan@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/51266086?v=4"
   },
   {
     name: "Lara",
     email: "lara@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars3.githubusercontent.com/u/61751892?v=4"
   },
   {
     name: "Eukleyv",
     email: "eukleyv@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/68221749?v=4"
   },
   {
     name: "Branca",
     email: "branca@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars2.githubusercontent.com/u/68083103?v=4"
   },
   {
     name: "Samira",
     email: "samira@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/38704468?v=4"
+
   },
   {
     name: "Maria",
     email: "maria@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/67118326?v=4"
   },
   {
     name: "Louis",
     email: "louis@gmail.com",
-    password: "123456"
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/61750901?v=4"
   },
   {
     name: "Adriano",
     email: "adriano@gmail.com",
-    password: "123456"
+    password: "123456",
+     url: "https://avatars0.githubusercontent.com/u/67058933?v=4"
   },
   {
     name: "Danny",
     email: "danny@deve.to",
-    password: "123456"
+    password: "123456",
+    url: "https://res.cloudinary.com/djnfnwxgu/image/upload/v1599561280/deveto/original_nkgfa8.png"
   }
 ]
 data_users.each do |props|
   user = User.create!({
   name: props[:name],
   email: props[:email],
-  password: props[:password]
+  password: props[:password],
+  url: props[:url]
   })
 end
 
@@ -99,8 +113,8 @@ household_array = ["Family", "Friends", "Le Wagon Family", "Grandma's House", "C
   userhousehold = UserHousehold.create!({
   user: selected_user,
   household: household,
-  total_points: rand(1..10),
-  vetos_remaining:rand(1..10),
+  total_points: 0,
+  vetos_remaining: 1,
   user_turn: false,
  })
   users.delete(selected_user)

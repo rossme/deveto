@@ -9,9 +9,15 @@ class HouseholdMoviesController < ApplicationController
     @household_movie.household = @household
 
     @household_movie.save
-    userhousehold = @household.user_households.where(user: current_user).first
-    userhousehold.total_points += 10 - @household_movie.movie.rating.to_i if userhousehold.total_points
-    userhousehold.save
+    @household.users.each do |user|
+      userhousehold = @household.user_households.where(user: user).first
+      userhousehold.total_points += 10 - @household_movie.movie.rating.to_i if userhousehold.total_points
+      if userhousehold.total_points % 5 == 0
+        userhousehold.vetos_remaining += 1
+      end
+      userhousehold.save
+    end
+
 
     user_playing = @household.user_households.sample
     # @ or no @
@@ -36,3 +42,4 @@ class HouseholdMoviesController < ApplicationController
     params.require(:household_movie).permit(:movie_id) #:randomize_id?
   end
 end
+
