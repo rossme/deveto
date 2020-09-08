@@ -4,7 +4,7 @@
   <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col"></th>
+      <th scope="col">Avatar</th>
       <th scope="col">Name</th>
       <th scope="col">Points</th>
       <th scope="col">Vetos</th>
@@ -13,7 +13,7 @@
   <tbody>
     <% @household.user_households.each do |user_household| %>
       <tr>
-        <th scope="row">#</th>
+        <th scope="row"><%= image_tag user_household.user.url,  class: 'avatar' %></th>
         <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
         <td><%= user_household.vetos_remaining %></td>
