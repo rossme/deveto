@@ -1,5 +1,6 @@
 <div class="show-household" style="text-align: center">
   <p><%= @household.name %> : Household Leaderboard</p>
+  <p><%= current_user.name %></p>
   <table class="table table-dark">
   <thead>
     <tr>
@@ -31,5 +32,6 @@
     <%= f.button :submit, "Add Friend", class: 'btn btn-secondary' %>
  <% end %>
 
+<%=  link_to "Back", households_path, class: 'btn btn-secondary m-3' %>
 
 

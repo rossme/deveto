@@ -59,7 +59,7 @@ class HouseholdsController < ApplicationController
     @household.user = current_user
 
     if @household.save
-      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id)
+      @userhousehold = UserHousehold.new(user_id: current_user.id, household_id: @household.id, vetos_remaining: 5, total_points: 6)
       @userhousehold.save
       redirect_to household_path(@household)
     else
