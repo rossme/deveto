@@ -31,7 +31,7 @@ const randomizeMovieNameOnClick = () => {
     document.querySelector("#randomize").innerHTML = "";
     let movie = movies.random().replace(/("|"$)/g, '');
     let movierandom = document.createElement("H1");
-    movierandom.innerHTML = movie;
+    movierandom.innerHTML = movie.slice(0, 20) + '...';
     moviename.prepend(movierandom);
     // window.clearTimeout(btimer);
     // timer(30, callback);

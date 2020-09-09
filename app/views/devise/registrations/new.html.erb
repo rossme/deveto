@@ -3,10 +3,17 @@
   <%= f.error_notification %>
 
   <div class="form-inputs-sign-up">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :url,
+                autofocus: true,
+                input_html: { autocomplete: "avatar url" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
