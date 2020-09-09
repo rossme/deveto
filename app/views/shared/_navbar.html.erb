@@ -4,7 +4,7 @@
   </a>
   <button  class="navbar-toggler mx-1" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-   
+
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto mt-0 pt-0">
@@ -13,12 +13,12 @@
       </li>
     </ul>
       <span class="navbar-text pl-1">
-        <% if user_signed_in? %>
-        <%= link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
-       <% else %>
-        <%= link_to "Login", new_user_session_path, class:"navbar-text" %> |
-        <%= link_to "Sign up", new_user_registration_path, class:"navbar-text" %>
+          <% if user_signed_in? %>
+            <% link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
+            <% link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
+          <% else %>
+            <% link_to "Login", new_user_session_path, class:"navbar-text" %> |
+            <% link_to "Sign up", new_user_registration_path, class:"navbar-text" %>
       </span>
     <% end %>
   </div>
