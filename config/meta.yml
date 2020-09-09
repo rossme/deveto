@@ -1,5 +1,5 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
+meta_product_name: "Danny DeVeto"
+meta_title: "Danny DeVeto - The Random Movie Picker With An Evil Twist"
+meta_description: "It won't change the world, but it will make choosing movies more fun!"
 meta_image: "cover.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account" 
+twitter_account: "@danny_deveto"
