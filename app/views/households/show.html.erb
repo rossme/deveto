@@ -10,8 +10,13 @@
       <th scope="col">Vetos</th>
     </tr>
   </thead>
+  <!-- ACTION CABLE -->
   <tbody>
     <% @household.user_households.each do |user_household| %>
+
+      <!-- <tr id="<%= user_household.user.id %>"> -->
+         <!--<th scope="row" id="table-num">#</th> -->
+
       <tr>
         <th scope="row"><%= image_tag user_household.user.url,  class: 'avatar' %></th>
         <td><%= user_household.user.name %></td>

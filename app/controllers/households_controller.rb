@@ -15,15 +15,20 @@ class HouseholdsController < ApplicationController
   def random_pick
     # 2. if y turn is true do
     # if itsrn - I can chose between 3 randomize options ( the user has 3 turns)
-    if params[:pick] == "danny"
-      @movie = Movie.where("movies.rating >= 7.0 AND movies.media = 'movie'").sample
-    elsif params[:pick] == "crazy"
-      @movie = Movie.where("movies.rating < 7.0").sample
-    else params[:pick] == "evil"
+    if params[:pick] == "evil"
+      @movie = Movie.where("movies.rating <= 6.0 AND movies.media = 'movie'").sample
+    elsif params[:pick] == "danny"
+      @movie = Movie.where("movies.rating >= 7.5 AND movies.media = 'movie'").sample
+    else params[:pick] == "krazy"
       #TODO add runtime over 80 mins to remove series classed as movies?
       @movie = Movie.where("movies.media = 'movie'").sample
     end
     @household_movie = HouseholdMovie.new(movie: @movie)
+
+    HouseholdChannel.broadcast_to(
+      @household,
+      { action: 'ramdom_pick', movie_name: @movie.title, sender_id: current_user.id }
+    )
   end
 
   def start_game
@@ -31,7 +36,6 @@ class HouseholdsController < ApplicationController
     @household = Household.find(params[:id])
     @user_playing_household = @household.user_households.find_by(user_turn: true)
     @user_veto = @household.user_households.find_by(user: current_user)
-
   end
 
   def veto
@@ -48,7 +52,12 @@ class HouseholdsController < ApplicationController
     end
     @user_veto.save
     # broadcast message to all the user households
-    redirect_to start_game_household_path(@household), notice: "Movie vetod!!!!!"
+    HouseholdChannel.broadcast_to(
+      @household,
+      { action: 'veto', veto_from: current_user.name, sender_id: current_user.id }
+    )
+
+    redirect_to start_game_household_path(@household), notice: 'Veto POWER!!!'
   end
 
   # As a user I can create groups for watching movies together
