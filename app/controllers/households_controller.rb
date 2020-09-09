@@ -34,8 +34,16 @@ class HouseholdsController < ApplicationController
   def start_game
     # 3. give points
     @household = Household.find(params[:id])
-    @user_playing_household = @household.user_households.find_by(user_turn: true)
-    @user_veto = @household.user_households.find_by(user: current_user)
+
+    if @household.user_households.length == 1
+      @userhousehold = UserHousehold.new
+      # put alert cannot play alone
+      # render "show", :alert => 'You cannot play alone!'
+      redirect_to household_path(@household), alert: "You cannot play alone! Get some friends!"
+    else
+      @user_playing_household = @household.user_households.find_by(user_turn: true)
+      @user_veto = @household.user_households.find_by(user: current_user)
+    end
   end
 
   def veto
