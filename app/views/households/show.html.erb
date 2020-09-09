@@ -18,7 +18,7 @@
          <!--<th scope="row" id="table-num">#</th> -->
 
       <tr>
-        <th scope="row"><%= image_tag user_household.user.url,  class: 'avatar' %></th>
+        <th scope="row"><%= image_tag user_household.user.url,  class: 'avatar' unless user_household.user.url.nil? %></th>
         <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
         <td><%= user_household.vetos_remaining %></td>

@@ -38,6 +38,10 @@ const randomizeMovieNameOnClick = () => {
     movielink.href = "https://www.netflix.com/watch/"+movie.id
     movielink.appendChild(movierandom)
     let moviename = document.querySelector("#randomize").prepend(movielink);
+
+    // movierandom.innerHTML = movie.slice(0, 20) + '...';
+    // moviename.prepend(movierandom);
+
     // window.clearTimeout(btimer);
     // timer(30, callback);
   

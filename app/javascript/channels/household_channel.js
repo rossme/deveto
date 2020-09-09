@@ -5,12 +5,14 @@ const initHouseholdCable = () => {
   const tableContainer = document.querySelector('.household-start-game');
   if (tableContainer) {
     const id = tableContainer.dataset.householdId;
-    console.log('subscribed to household' + id);
+    console.log('subscribed to household random pick' + id);
 
     consumer.subscriptions.create({ channel: "HouseholdChannel", id: id }, {
       received(data) {
         if (tableContainer.dataset.currentUserId != data.sender_id) {
-          const movieContainer = document.querySelector('#movie-name h1');
+          const movieContainer = document.querySelector('#movie-name');
+          if (!movieContainer) return
+
           movieContainer.innerHTML = data.movie_name;
 
           const vetoContainer = document.querySelector('#playing-user-2');
@@ -24,7 +26,7 @@ const initHouseholdCable = () => {
   const tableVetoContainer = document.querySelector('.household-random-pick');
   if (tableVetoContainer) {
     const id = tableVetoContainer.dataset.householdId;
-    console.log('subscribed to household' + id);
+    console.log('subscribed to household veto' + id);
 
     consumer.subscriptions.create({ channel: "HouseholdChannel", id: id }, {
       received(data) {
