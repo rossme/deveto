@@ -46,7 +46,10 @@ class HouseholdsController < ApplicationController
     @user_veto = @household.user_households.find_by(user: current_user)
     # update number of vetos
     # take points from the user_household
-    @user_veto.vetos_remaining -= 1
+    if @user_veto.vetos_remaining > 0
+      @user_veto.vetos_remaining -= 1
+    end
+
     if @user_veto.total_points > 0
       @user_veto.total_points -= 1
     end
