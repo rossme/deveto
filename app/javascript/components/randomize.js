@@ -1,11 +1,12 @@
 const randomizeMovieNameOnClick = () => {
-  const movies = document.querySelector("#randomize").dataset.movies.split(",");
-  const moviename = document.querySelector("#randomize");
+  const movies = document.querySelector("#randomize").dataset.movies;
+  const moviesjson = JSON.parse(movies);
   const countdown = document.querySelector("#countdown");
-  Array.prototype.random = function () {
-    return this[Math.floor((Math.random()*this.length))];
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
-
  /*  let btimer;
 
   function timer(seconds, cb) {
@@ -29,13 +30,19 @@ const randomizeMovieNameOnClick = () => {
 
   document.querySelector("#randomize-button").addEventListener('click', function() {
     document.querySelector("#randomize").innerHTML = "";
-    let movie = movies.random().replace(/("|"$)/g, '');
+    let number = getRandomInt(1,moviesjson.length)
+    let movie = moviesjson[number]
     let movierandom = document.createElement("H1");
-    movierandom.innerHTML = movie;
-    moviename.prepend(movierandom);
+    movierandom.innerHTML = movie.title;
+    let movielink = document.createElement("a");
+    movielink.href = "https://www.netflix.com/watch/"+movie.id
+    movielink.appendChild(movierandom)
+    let moviename = document.querySelector("#randomize").prepend(movielink);
     // window.clearTimeout(btimer);
     // timer(30, callback);
+  
   })
 };
+
 
 export { randomizeMovieNameOnClick }

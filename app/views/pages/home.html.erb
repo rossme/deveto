@@ -7,7 +7,7 @@
       <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599218903/deveto/danny_tdcaap.png", :alt => "DannyDeveto", :class => "imagelanding") %>
     </div>
     <div class="col-md-4 d-flex justify-content-center text-center">
-      <div id="randomize" data-movies="<%= @movies %>" style="color: white; height: 70px;">
+      <div id="randomize" data-movies="<%= @movies.to_json %>" style="color: white; height: 70px;">
         <h1>Danny's Choice</h1>
         <i class="fas fa-arrow-down fa-3x"></i>
       </div>
@@ -16,7 +16,7 @@
 
    
     <div class="col-md-4 pt-4 d-flex justify-content-center text-center">
-        <div id="randomize" data-movies="<%= @movies %>">
+        <div id="randomize" data-movies="<%= @movies_all %>">
         <button type="button" id="randomize-button" class="btn btn-default btn-lg mt-4">RANDOM MOVIE</button>
         <% if user_signed_in? %>
           <%= link_to "My Households", households_path, class: "btn btn-default btn-lg m-2" %>
