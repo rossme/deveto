@@ -1,9 +1,19 @@
-.show-household {
+.show-household p {
   font-family: 'Londrina Solid', cursive;
-  color: white;
-  font-weight: 50;
+  color: #0E0000;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 2px 2px lightgrey;
 }
-
 .fa-trash {
   color: #fdc83c;
 }
+
+.back_button {
+  text-align: center;
+}
+
+.add_friend {
+  text-align: center;
+}
+

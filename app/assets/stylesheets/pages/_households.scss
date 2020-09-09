@@ -5,7 +5,8 @@ h2 {
   color: #0E0000;
   font-weight: 50;
   font-weight: bolder;
-  text-shadow: 2px 2px #e4d7d7;
+  text-shadow: 2px 2px lightgrey;
+  margin: 2px;
 }
 
 .house_hold {
@@ -15,7 +16,9 @@ h2 {
 
 
 .house_hold_cards{
-    margin: 15px;
+    margin-bottom: 20px; 
+    margin-left: 20px;
+    margin-right: 20px;
     background-color: #242425 ;
     border-radius: 15px;
 
@@ -27,5 +30,11 @@ h2 {
 .fa-trash {
   position: absolute;
   right: -20px;
+  top: 35px;
   width: 100px;
+  
+}
+
+.new_household {
+  margin-bottom: 50px;
 }
