@@ -14,11 +14,11 @@
     </ul>
       <span class="navbar-text pl-1">
           <% if user_signed_in? %>
-            <% link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
-            <% link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
+            <%= link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
           <% else %>
-            <% link_to "Login", new_user_session_path, class:"navbar-text" %> |
-            <% link_to "Sign up", new_user_registration_path, class:"navbar-text" %>
+            <%= link_to "Login", new_user_session_path, class:"navbar-text" %> |
+            <%= link_to "Sign up", new_user_registration_path, class:"navbar-text" %>
       </span>
     <% end %>
   </div>
