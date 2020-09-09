@@ -22,6 +22,10 @@
         <td><%= user_household.user.name %></td>
         <td><%= user_household.total_points %></td>
         <td><%= user_household.vetos_remaining %></td>
+         <td><%= link_to household_user_household_path(@household, user_household), method: :delete, data: { confirm: "Are you sure?"} do %>
+            <i class="fas fa-trash"></i></td>
+          <% end %>
+
       </tr>
     <% end %>
   </tbody>
