@@ -115,7 +115,7 @@ household_array = ["Family", "Friends", "Le Wagon Family", "Grandma's House", "C
   household: household,
   total_points: 0,
   vetos_remaining: 1,
-  user_turn: false,
+  user_turn: true,
  })
   users.delete(selected_user)
  end
