@@ -30,7 +30,7 @@ const initHouseholdCable = () => {
       received(data) {
         if (tableVetoContainer.dataset.currentUserId != data.sender_id) {
           window.location.href = tableVetoContainer.dataset.startgameUrl;
-          Swal.fire('Veto by ' + data.veto_from); // Use Sweet alert https://sweetalert2.github.io/#download
+          alert('Veto by ' + data.veto_from); // Use Sweet alert https://sweetalert2.github.io/#download
         }
       },
     });
