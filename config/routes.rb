@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       get "random_pick", to: "households#random_pick"
       get "veto", to: "households#veto"
     end
-    resources :user_households, only: [:new, :create]
+    resources :user_households, only: [:new, :create, :destroy]
     resources :household_movies, only: [:index, :show, :create]
   end
   resources :user_households, only: :destroy

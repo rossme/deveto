@@ -1,6 +1,7 @@
 class UserHouseholdsController < ApplicationController
     before_action :authenticate_user!
 
+
     #as a userhouseholder I can add new users (how?)
     def new
       @userhousehold = UserHousehold.new
@@ -21,10 +22,10 @@ class UserHouseholdsController < ApplicationController
     end
 
     def destroy
+      @household = Household.find(params[:household_id])
+      @userhousehold = UserHousehold.find(params[:id])
+      @userhousehold.destroy
+      redirect_to household_path(@household)
     end
-
-   # def userhousehold_params
-    #  params.require(:user_household).permit(:user)
-    #end
 
 end
