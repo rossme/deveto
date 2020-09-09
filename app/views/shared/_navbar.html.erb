@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-foward">
+<nav class="navbar navbar-expand-lg navbar-custom bg-dark navbar-custom">
   <a class="navbar-brand" href="/">
-    <img src="https://res.cloudinary.com/djnfnwxgu/image/upload/v1599210319/deveto/deveto_logo_yellow_wqhhli.svg" height="50" alt="Danny DeVeto">
+    <img src="https://res.cloudinary.com/djnfnwxgu/image/upload/v1599210319/deveto/deveto_logo_yellow_wqhhli.svg" alt="Danny DeVeto">
   </a>
   <button class="navbar-toggler mx-1" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
         <a class="nav-link" href="#"></a>
       </li>
     </ul>
-      <span class="navbar-text px-4">
+      <span class="navbar-text pl-1">
         <% if user_signed_in? %>
         <%= link_to 'Profile', edit_user_registration_path, class:"navbar-text" %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"navbar-text" %>
