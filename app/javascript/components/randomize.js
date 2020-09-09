@@ -44,7 +44,7 @@ const randomizeMovieNameOnClick = () => {
 
     // window.clearTimeout(btimer);
     // timer(30, callback);
-  
+
   })
 };
 
