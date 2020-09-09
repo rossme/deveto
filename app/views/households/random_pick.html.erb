@@ -1,45 +1,31 @@
-<div class="row" style="color: black;" >
-  <div class="col-md-12 py-4 d-flex justify-content-center text-center" id="card-movie" style="background: url(<%= @movie.image %>);">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="<%= @movie.image %>" alt="Card image cap">
-      <div class="card-body">
-        <h2 class="card-title"><%= @movie.title %></h2>
-        <p class="card-text">Runtime: <%= @movie.runtime %></p>
+<div class="container household-random-pick" data-household-id="<%= @household.id %>" data-current-user-id="<%= current_user.id %>" data-startgame-url="<%= start_game_household_url(@household) %>">
+  <div class="row">
+    <div class="col-md-12 py-4 d-flex justify-content-center text-center" id="card-movie">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= @movie.image %>" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title"><%= @movie.title %></h2>
+          <!-- TIMER IS BELOW -->
+          <div class="waiting-veto">
+          <!-- ADD TIMER AMOUNT BELOW -->
+          <div id="veto-timer" style="font-size: 14rem; color: white; background: url(<%= @movie.image %>);">60</div>
+          <h2>Will Someone Veto!?</h2>
+        </div>
+        <div class="d-none" id="watch-btn">
+          <%= simple_form_for [@household, @household_movie ] do |f| %>
+          <%= f.input :movie_id, as: :hidden %>
+          <%= f.button :submit, "No Vetos! Watch now on Netflix", class: "btn btn-large btn-primary"%>
+         <% end %>
+        </div>
+          <p class="card-text">Runtime: <%= @movie.runtime %></p>
+          <p><%= "This film scored #{@movie.rating}/10 on " %><i class="fab fa-imdb" style="color: #F5C519"></i><%= "and will earn you #{10 - @movie.rating.to_i} points" %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= @movie.released %></li>
+          <!-- THIS SHOULD BE A DROP DOWN! -->
+          <li class="list-group-item"><%= @movie.synopsis %></li>
+        </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></li>
-        <li class="list-group-item"><%= @movie.rating %></li>
-        <li class="list-group-item"><%= @movie.released %></li>
-        <li class="list-group-item"><%= @movie.synopsis %></li>
-      </ul>
     </div>
   </div>
-</div>
-
-
-<div class="container household-random-pick" data-household-id="<%= @household.id %>" data-current-user-id="<%= current_user.id %>" data-startgame-url="<%= start_game_household_url(@household) %>">
-  <br>
-  <!-- TODO _ MUST FIX TICKET-->
-  <h3 style="color: white"><strong><%= @movie.title %></strong></h3>
-  <!-- RUNTIME not always seeded - not reliable -->
-  <%= @movie.runtime %>
-  <%= image_tag @movie.image %>
-  <br>
-  <!-- TODO ADD MATH TO NEW DEF ON OTHER PAGE TO CREATE SCORE RULES AND ADD TO POINTS IF THEY CLICK 'WATCH' AND NOBODY VETOS -->
-  <h3 style="color: lightgrey"><%= "This film will earn you #{10 - @movie.rating.to_i} imbd points" %></h3>
-  <br>
-  <!-- TIMER IS BELOW - see timer.js -->
-  <div class="waiting-veto">
-    <h2>Will They Use Their Veto Powers!?</h2>
-    <div id="veto-timer" style="font-size: 36px;">30</div>
-  </div>
-  <div class="d-none" id="watch-btn">
-    <%= simple_form_for [@household, @household_movie ] do |f| %>
-    <%= f.input :movie_id, as: :hidden %>
-    <%= f.button :submit, "No Vetos! Watch now on Netflix", class: "btn btn-large btn-primary"%>
-   <% end %>
-  </div>
-<!-- go to controller do method to give points: 10 - rating -->
-<!-- update points in leaderboard -->
-  <br>
 </div>
