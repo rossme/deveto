@@ -41,6 +41,8 @@
     <div class="min-height">
      <%= yield %>
     </div>
+    <% unless controller_name == "households" && action_name == "start_game" %>
     <%= render 'shared/footer' %>
+    <% end %>
   </body>
 </html>
