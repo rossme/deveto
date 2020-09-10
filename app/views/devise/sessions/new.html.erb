@@ -12,11 +12,13 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
+<div class="centrethis">
   <div class="form-actions" autocomplete="off">
     <%= f.button :submit, "Log in"%>
   </div>
 <% end %>
 <div class="cemnas">
 <%= render "devise/shared/links" %>
+</div>
 </div>
 </div>

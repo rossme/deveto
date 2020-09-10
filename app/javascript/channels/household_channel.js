@@ -12,10 +12,20 @@ const initHouseholdCable = () => {
         if (tableContainer.dataset.currentUserId != data.sender_id) {
           const movieContainer = document.querySelector('#movie-name');
           if (!movieContainer) return
+           let movienameh3present = document.querySelector(".netflix-name")
+          if (movienameh3present) {
+            movienameh3.innerHTML = "";
+            movienameh3.innerHTML = data.movie_name;
+          } else {
+            let movienameh3 = document.createElement("H3")
+            movienameh3.classList.add("netflix-name")
+            movienameh3.innerHTML = data.movie_name;
+            movieContainer.appendChild(movienameh3);
 
-          const movienameh3 = document.createElement("H3")
-          movienameh3.innerHTML = data.movie_name;
-           movieContainer.appendChild(movienameh3);
+          }
+          
+
+          
 
           const vetoContainer = document.querySelector('#playing-user-2');
           vetoContainer.classList.remove('d-none');
