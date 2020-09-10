@@ -12,7 +12,13 @@
 @import "components/index";
 @import "pages/index";
 
+/*
+ *= require sweetalert2
+ */
 
+
+// WHY IS THIS HERE?
 .min-height {
     min-height: 80vh;
 }
+

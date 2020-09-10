@@ -20,8 +20,13 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 //= require jquery3
+//= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require sweetalert2
+//= require sweet-alert2-rails
+
+
 import swal from 'sweetalert';
 
 // External imports
@@ -29,7 +34,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // chatroom import function
-import { initChatroomCable } from '../channels/chatroom_channel';
+// import { initChatroomCable } from '../channels/chatroom_channel';
 // import { initSelect2 } from '../components/init_select2';
 import { randomizeMovieNameOnClick } from "../components/randomize";
 
@@ -51,6 +56,12 @@ document.addEventListener('turbolinks:load', () => {
   };
   if (document.querySelector(".households-start_game") || document.querySelector(".households-random_pick")){
     vetoTimer();
+    Swal.fire({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  icon: 'error',
+  confirmButtonText: 'Cool'
+})
   }
 
 });
