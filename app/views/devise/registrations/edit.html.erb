@@ -3,7 +3,7 @@
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs-edit">
+    <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -33,5 +33,8 @@
 <div class="form-inputs-devise">
 <h3>Cancel my account</h3>
 
-<%= link_to "Back", :back %>
+<div class="btn-vetto m-3">
+  <%=  link_to "Back", :back %>
 </div>
+
+

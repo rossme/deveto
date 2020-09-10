@@ -7,16 +7,16 @@
       <i class="fas fa-caret-down fa-4x"></i>
     </div>
     <div id="randomize" data-movies="<%= @movies_all %>">
-      <button type="button" id="randomize-button" class="btn btn-default btn-lg">PRESS ME</button>
+      <button type="button" id="randomize-button" class="btn-vetto btn-default btn-lg">PRESS ME</button>
       <div class="col-md-12 justify-content-center text-center">
         <% if user_signed_in? %>
-         <%= link_to "DASHBOARD", households_path, class:"btn btn-default btn-lg" %>
+         <%= link_to "DASHBOARD", households_path, class:"btn-vetto btn-default btn-lg" %>
       </div>
       <% else %>
        <h4 style="font-weight: 300; color: white; line-height: 30px; padding-bottom: 12px">Sign up for exclusive access to <strong>Evil DeVeto,</strong>
         Krazy DeVeto, add your household, collect points by
         watching terrible movies and play <strong>Vetos</strong> against your housemates movie choices!</h4>
-        <%= link_to "SIGN UP", new_user_registration_path, class:"btn btn-default btn-lg"  %>
+        <%= link_to "SIGN UP", new_user_registration_path, class:"btn-vetto btn-default btn-lg"  %>
       <% end %>
     </div>
   </div>
