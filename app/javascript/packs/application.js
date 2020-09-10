@@ -27,7 +27,7 @@ require("channels")
 //= require sweet-alert2-rails
 
 
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 
 // External imports
 import "bootstrap";
@@ -56,12 +56,12 @@ document.addEventListener('turbolinks:load', () => {
   };
   if (document.querySelector(".households-start_game") || document.querySelector(".households-random_pick")){
     vetoTimer();
-    Swal.fire({
-  title: 'Error!',
-  text: 'Do you want to continue',
-  icon: 'error',
-  confirmButtonText: 'Cool'
-})
+//     Swal.fire({
+//   title: 'Error!',
+//   text: 'Do you want to continue',
+//   icon: 'error',
+//   confirmButtonText: 'Cool'
+// })
   }
 
 });
