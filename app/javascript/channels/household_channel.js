@@ -13,7 +13,9 @@ const initHouseholdCable = () => {
           const movieContainer = document.querySelector('#movie-name');
           if (!movieContainer) return
 
-          movieContainer.innerHTML = data.movie_name;
+          const movienameh3 = document.createElement("H3")
+          movienameh3.innerHTML = data.movie_name;
+           movieContainer.appendChild(movienameh3);
 
           const vetoContainer = document.querySelector('#playing-user-2');
           vetoContainer.classList.remove('d-none');

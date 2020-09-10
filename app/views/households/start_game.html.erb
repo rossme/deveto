@@ -51,20 +51,20 @@
       <h3>IT’S <%= @user_playing_household.user.name.upcase %>’S TURN! WAIT HERE...QUICK EAT PIZZA!</h3>
     </div>
     <div class="col-md-4 d-flex justify-content-center text-center">
-      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599599873/deveto/scifi_gzzn0k.png", :alt => "DannyDeveto", :class => "imagelanding") %>
+      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599599873/deveto/scifi_gzzn0k.png", :alt => "DannyDeveto", :class => "greendanny") %>
     </div>
     <div id="playing-user-2" class="d-none">
       <div id="movie-name">
-        <h3>Movie Name</h3>
+        <h3></h3>
       </div>
     <!-- USER 2 VETOS REMAINING  -->
       <% if @user_veto.vetos_remaining && @user_veto.vetos_remaining > 0  %>
         <p>You have veto powers</p>
         <%= link_to veto_household_path(@household) do %>
-        <%= image_tag "veto.png" %>
+        <%= image_tag "veto.png", class: 'v-vetto'%>
         <% end %>
       <% else %>
-        <p>You have no Veto powers</p>
+        <h3>You have no Veto powers</h3>
         <% end %>
       </div>
     <% end %>
