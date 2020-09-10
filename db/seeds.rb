@@ -18,7 +18,19 @@ data_users = [
     name: "Ricardo",
     email: "ricardo@gmail.com",
     password: "123456",
-    url: "https://avatars1.githubusercontent.com/u/22415816?v=4"
+    url: "https://avatars3.githubusercontent.com/u/67806990?v=4"
+  },
+  {
+    name: "Ross",
+    email: "ross@gmail.com",
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/66185926?v=4"
+  },
+   {
+    name: "Leonor",
+    email: "leonor@gmail.com",
+    password: "123456",
+    url: "https://avatars1.githubusercontent.com/u/63351704?v=4"
   },
   {
     name: "Cass",
