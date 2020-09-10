@@ -9,7 +9,7 @@ class NetflixApiService
     results = []
 
     #THE 'QUERY' NEEDS FIXING
-    while page <= 3
+    while page <= 20
 
       query = "?q=get%3Anew3000%3APT&p=#{page}&t=ns&st=adv"
 
