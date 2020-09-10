@@ -32,15 +32,15 @@
     <%=  link_to "Ready to Watch?", start_game_household_path(@household), class: 'btn-vetto btn-secondary m-3' %>
 </div>
 
-<div class="add_friend">
+<div class="add_friend" style="text-align: center">
   <%= simple_form_for [@household, @userhousehold] do |f| %>
     <%= f.input :user, collection: @user_choices, include_blank: false %>
     <%= f.button :submit, "Add Friend", class: 'btn-vetto btn-secondary' %>
  <% end %>
  </div>
 
-<div class="back_button">
-<%=  link_to "Back", households_path, class: 'btn-vetto btn-secondary m-3' %>
+<div class="back_button" style="text-align: center">
+  <%=  link_to "Back", households_path, class: 'btn-vetto btn-secondary' %>
 </div>
 
 <% flash.each do |type, msg| %>
