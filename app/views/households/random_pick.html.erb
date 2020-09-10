@@ -1,7 +1,7 @@
 <div class="container household-random-pick" data-household-id="<%= @household.id %>" data-current-user-id="<%= current_user.id %>" data-startgame-url="<%= start_game_household_url(@household) %>">
   <div class="row">
     <div class="col-md-12 py-4 d-flex justify-content-center text-center" id="card-movie" style="color:black;">
-      <div class="card">
+      <div class="card card-border">
         <img class="card-img-top" src="<%= @movie.image %>" alt="<%= @movie.title %>">
         <div class="card-body">
           <h3 class="card-title"><%= @movie.title %></h3>
