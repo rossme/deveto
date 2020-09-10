@@ -1,24 +1,25 @@
 .navbar-custom {
-  background-color:black;
+  background-color:#242425;
 }
 
 
 .navbar-toggler {
-  border: yellow;
+  border: #FFC65A;
 }
 
-
-
-
-//.bg-dark {
-  //height: 80px;
-//}
+.fa-bars {
+  color: #FFC65A;
+  padding-top: 5px;
+}
 
 .navbar-brand {
   width: 170px;
 }
 
-//.navbar-foward {
-  //z-index: 1000;
-//}
 
+.navbar-text{
+ a {
+  color: white;
+  text-shadow: 2px 2px grey;
+} 
+}
