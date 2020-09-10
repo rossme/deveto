@@ -40,7 +40,11 @@ class HouseholdsController < ApplicationController
       # put alert cannot play alone
       # render "show", :alert => 'You cannot play alone!'
       redirect_to household_path(@household), alert: "You cannot play alone! Get some friends!"
+    elsif @household.user_households.where(user_turn: true).any?
+      @user_playing_household = @household.user_households.find_by(user_turn: true)
+      @user_veto = @household.user_households.find_by(user: current_user)
     else
+      @household.user_households.first.update(user_turn: true)
       @user_playing_household = @household.user_households.find_by(user_turn: true)
       @user_veto = @household.user_households.find_by(user: current_user)
     end
