@@ -6,13 +6,22 @@ h2 {
     font-weight: bold
 }
 
-.form-inputs-sign-up {
-    width: 250px;
-    border-radius: 8px,
+
+.form-inputs-devise {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+    flex-direction: column;
+
+    a{
+        color:#242425;
+    }
 }
 
 .sign-up-container {
     justify-content: center;
     display: grid;
+    margin-top: 50px;
 }
 

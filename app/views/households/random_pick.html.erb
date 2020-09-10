@@ -15,7 +15,7 @@
         <div class="d-none" id="watch-btn">
           <%= simple_form_for [@household, @household_movie ] do |f| %>
           <%= f.input :movie_id, as: :hidden %>
-          <%= f.button :submit, "Watch on Netflix", class: "btn btn-large btn-primary"%>
+          <%= f.button :submit, "Watch on Netflix", class: "btn-vetto btn-large btn-primary"%>
          <% end %>
         </div>
           <h3><%= "This film scored #{@movie.rating}/10 on iMDb and will earn you #{10 - @movie.rating.to_i} points" %></h3>
