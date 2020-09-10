@@ -137,8 +137,13 @@ puts "DESTROYING NETFLIX MOVIES..."
 Movie.destroy_all
 movies = NetflixApiService.parsing
 movies.each do |movie|
+ if movie['title'].include?("&#39")
+  movie_title = movie['title'].slice! "&#39"
+ else
+  movie_title =  movie['title']
+ end
   Movie.create!(
-    title: movie['title'],
+    title: movie_title,
     rating: movie['rating'],
     released: movie['released'],
     media: movie['type'],
