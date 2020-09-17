@@ -40,9 +40,13 @@
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
       <div id ="main-container">
+
+      <div class="min-height">
         <%= yield %>
       </div>
-       <%= render "shared/footer" %>
+        <% unless controller_name == "households" && action_name == "start_game" %>
+        <%= render 'shared/footer' %>
+        <% end %>
     </div>
   </body>
 </html>
