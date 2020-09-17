@@ -1,15 +1,6 @@
-.footer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
-  background-color: #242425;
-  margin-top: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
-}
-
-.centreit {
-  width: 7vh;
-  
+#footer {
+  min-height: 100%;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
 }

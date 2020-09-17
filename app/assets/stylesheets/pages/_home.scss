@@ -1,15 +1,8 @@
 //TO ADD OR CHANGE FONTS GO TO _fonts.scss
 
 body {
-  background: rgb(191,30,34);
-  background: radial-gradient(circle, rgba(220,30,34,1) 0%, rgba(139,21,24,1) 100%);
-}
-
-.imagelanding {
-  width: 350px;
-  padding-top: 10px;
-  padding-bottom: 30px;
-  animation: rotation 2s  linear;
+  background: rgba(255,190,2,1);
+  background: radial-gradient(circle, rgba(255,206,67,1) 0%, rgba(255,190,2,1) 100%);
 }
 
 .greendanny {
@@ -19,13 +12,10 @@ body {
   animation: rotation 2s  linear;
 }
 
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
 #countdown {

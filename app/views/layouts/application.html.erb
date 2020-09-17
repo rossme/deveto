@@ -36,13 +36,13 @@
   </head>
 
   <body class="<%= controller_name %>-<%= action_name %>">
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div class="min-height">
-     <%= yield %>
+    <div class="page-container">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <div id ="main-container">
+        <%= yield %>
+      </div>
+       <%= render "shared/footer" %>
     </div>
-    <% unless controller_name == "households" && action_name == "start_game" %>
-    <%= render 'shared/footer' %>
-    <% end %>
   </body>
 </html>
