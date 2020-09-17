@@ -1,15 +1,13 @@
 <div class="container">
   <div class="col-md-12 justify-content-center text-center py-3">
     <h3>Why is your housemate taking so long to choose a movie?! Nobody really cares and the pizza is getting cold!</h3>
+      <%= image_tag("https://res.cloudinary.com/djnfnwxgu/image/upload/v1599685816/deveto/danny_shadow_kaywyg.png", :alt => "DannyDeveto", :class => "imagelanding") %>
     <div id="randomize" data-movies="<%= @movies.to_json %>" style="height: 120px;">
       <h1>RANDOM MOVIE</h1>
       <i class="fas fa-caret-down fa-4x"></i>
     </div>
-
     <div id="randomize" data-movies="<%= @movies_all %>">
-
       <button type="button" id="randomize-button" class="btn-vetto btn-default btn-lg">RANDOMIZE</button>
-
       <div class="col-md-12 justify-content-center text-center">
         <% if user_signed_in? %>
          <%= link_to "DASHBOARD", households_path, class:"btn-vetto btn-default btn-lg" %>

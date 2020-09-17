@@ -5,6 +5,13 @@ body {
   background: radial-gradient(circle, rgba(255,206,67,1) 0%, rgba(255,190,2,1) 100%);
 }
 
+.imagelanding {
+  width: 350px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  animation: rotation 2s  linear;
+}
+
 .greendanny {
   width: 200px;
   padding-top: 10px;
@@ -12,10 +19,13 @@ body {
   animation: rotation 2s  linear;
 }
 
-.page-container {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 #countdown {
